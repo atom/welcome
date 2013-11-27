@@ -2,9 +2,11 @@ path = require 'path'
 
 module.exports =
   configDefaults:
-    showWelcomeBuffer: true
+    showOnStartup: true
 
   activate: ->
-    return unless atom.config.get('welcom.showWelcomeBuffer')
-    atom.rootView.open path.join(__dirname, 'welcome.md')
-    atom.config.set('welcom.showWelcomeBuffer', false)
+    @show() if atom.config.get('welcome.showOnStartup')
+    atom.config.set('welcome.showOnStartup', false)
+
+  show: ->
+    atom.workspaceView.open path.join(__dirname, 'welcome.md')
