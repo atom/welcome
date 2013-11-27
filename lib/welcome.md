@@ -6,15 +6,15 @@ some information to help you out.
 1. Keep Atom a secret! We aren't ready to publicly announce Atom yet so kept
 this application on the down low.
 
-3. We want your feedback! {Point out feedback icon} {Talk about diary study}
+2. We want your feedback! {Point out feedback icon} {Talk about diary study}
 {Describe how we Atom will periodically send usage metrics}
 
-4. If you only remember one keybinding make it `cmd-shift-P`. This toggles the
+3. If you only remember one keybinding make it `cmd-shift-P`. This toggles the
 command palette, which lists every Atom command. Go ahead and try it now! Press
 `cmd-shift-P`, type `markdown` and press enter. This triggers
 `markdown-preview:show` command which renders this text to HTML.
 
-5. Here is where you can get help with Atom
+4. Here is where you can get help with Atom
 
   * The [Atom docs](https://www.atom.io/docs/latest/) contain Guides and an API
 reference.
