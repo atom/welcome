@@ -21,3 +21,5 @@ reference.
   * [Atom Campfire Room](https://github.campfirenow.com/room/582204). Chat Atom
 developers and other private alpha users.
   * [Atom Repo](https://github.com/atom/atom). Check out the source or create an issue.
+
+5. To see this buffer again use the `command palette` and search for Welcome.

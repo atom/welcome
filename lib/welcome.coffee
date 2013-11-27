@@ -5,6 +5,7 @@ module.exports =
     showOnStartup: true
 
   activate: ->
+    atom.workspaceView.command 'welcome:show-welcome-buffer', => @show()
     @show() if atom.config.get('welcome.showOnStartup')
     atom.config.set('welcome.showOnStartup', false)
 
