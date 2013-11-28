@@ -1,25 +1,26 @@
 # Welcome to the Atom Private Alpha!
 
 You are one of the first people to try out GitHub's new text editor! Here is
-some information to help you out.
+what you need to know.
 
-1. Keep Atom a secret! We aren't ready to publicly announce Atom yet so kept
-this application on the down low.
-
-2. We want your feedback! {Point out feedback icon} {Talk about diary study}
-{Describe how we Atom will periodically send usage metrics}
-
-3. If you only remember one keybinding make it `cmd-shift-P`. This toggles the
-command palette, which lists every Atom command. Go ahead and try it now! Press
-`cmd-shift-P`, type `markdown` and press enter. This triggers
+1. If you only remember one thing make it `cmd-shift-P`. This keystroke toggles
+the command palette, which lists every Atom command. Yes, you can try it now!
+Press `cmd-shift-P`, type `markdown` and press enter. This triggers
 `markdown-preview:show` command which renders this text to HTML.
 
-4. Here is where you can get help with Atom
+2. We want your feedback! If you have anything positive or negative to say click
+on the red lightening bolt in the bottom right of the screen.
+
+3. Here is where you can get more help with Atom
 
   * The [Atom docs](https://www.atom.io/docs/latest/) contain Guides and an API
 reference.
   * [Atom Campfire Room](https://github.campfirenow.com/room/582204). Chat Atom
 developers and other private alpha users.
-  * [Atom Repo](https://github.com/atom/atom). Check out the source or create an issue.
+  * [Atom Repo](https://github.com/atom/atom). Check out the source or create
+an issue.
+  * [Atom Org](https://github.com/atom). This is where all Atom related repos
+are stored. This is also where you should keep your personal Atom packages.
 
-5. To see this buffer again use the `command palette` and search for Welcome.
+4. If you ever want to see this buffer again use the `command palette` and search
+for `Welcome`.
