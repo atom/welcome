@@ -1,13 +1,12 @@
 {
   "name": "welcome",
   "main": "./lib/welcome",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "First run guide for new users",
   "repository": "https://github.com/atom/welcome.git",
   "engines": {
     "atom": ">27.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
