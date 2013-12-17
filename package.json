@@ -1,7 +1,7 @@
 {
   "name": "welcome",
   "main": "./lib/welcome",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "description": "First run guide for new users",
   "repository": "https://github.com/atom/welcome.git",
