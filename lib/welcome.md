@@ -9,7 +9,7 @@ Press `cmd-shift-P`, type `markdown` and press enter. It will trigger the
 `markdown-preview:show` command which renders this text to HTML.
 
 2. We want your feedback! If you have anything positive or negative to say click
-on the orange lightning bolt in the bottom right corner of the screen.
+on the `send feedback` button at the bottom right of this window.
 
 3. Here is where you can get more help with Atom
 
