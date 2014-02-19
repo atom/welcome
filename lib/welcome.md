@@ -18,5 +18,5 @@ reference.
   * The [Atom Org](https://github.com/atom). This is where all GitHub created Atom
 packages are stored.
 
-4. If you ever want to see this buffer again use the command palette and search
-for `Welcome`.
+4. If you ever want to see this buffer again use the command palette
+(`cmd-shift-P`) and search for `Welcome`.
