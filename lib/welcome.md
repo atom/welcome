@@ -13,14 +13,10 @@ on the `send feedback` button at the bottom right of this window.
 
 3. Here is where you can get more help with Atom
 
-  * The [Atom docs](https://www.atom.io/docs/latest/) contain Guides and an API
+  * The [Atom docs](https://www.atom.io/docs) contain Guides and an API
 reference.
-  * [Atom Campfire Room](https://github.campfirenow.com/room/582204). Chat Atom
-developers and other private alpha users.
-  * [Atom Repo](https://github.com/atom/atom). Check out the source or create
-an issue.
-  * [Atom Org](https://github.com/atom). This is where all Atom related repos
-are stored.
+  * The [Atom Org](https://github.com/atom). This is where all GitHub created Atom
+packages are stored.
 
 4. If you ever want to see this buffer again use the `command palette` and search
 for `Welcome`.
