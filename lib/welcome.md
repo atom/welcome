@@ -1,7 +1,7 @@
-# Welcome to the Atom Private Alpha!
+# Welcome to the Atom Beta!
 
-You are one of the first people to try out GitHub's new text editor! Here is
-what you need to know.
+You are one of the first people to use GitHub's new text editor! Here is what
+you need to know.
 
 1. If you only remember one thing make it `cmd-shift-P`. This keystroke toggles
 the command palette, which lists every Atom command. Yes, you can try it now!
