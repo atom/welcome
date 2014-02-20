@@ -15,6 +15,8 @@ on the `send feedback` button at the bottom right of this window.
 
   * The [Atom docs](https://www.atom.io/docs) contain Guides and an API
 reference.
+  * `##atom` the [Atom IRC Channel](http://webchat.freenode.net/?channels=##atom).
+Chat with other Atom developers on freenode.
   * The [Atom Org](https://github.com/atom). This is where all GitHub created Atom
 packages are stored.
 
