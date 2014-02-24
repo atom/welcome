@@ -7,7 +7,7 @@
   "repository": "https://github.com/atom/welcome.git",
   "license": "MIT",
   "engines": {
-    "atom": ">27.0"
+    "atom": ">0.50.0"
   },
   "dependencies": {}
 }
