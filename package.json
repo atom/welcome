@@ -3,8 +3,8 @@
   "main": "./lib/welcome",
   "version": "0.4.0",
   "private": true,
-  "description": "First run guide for new users",
-  "repository": "https://github.com/atom/welcome.git",
+  "description": "Welcome editor when Atom is opened for the firs ttime",
+  "repository": "https://github.com/atom/welcome",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"

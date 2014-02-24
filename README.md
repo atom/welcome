@@ -1,3 +1,4 @@
-## Welcome Package
+## Welcome package
 
-First run guide for new users.
+Opens a welcome editor with helpful information the very first time Atom is
+opened.
