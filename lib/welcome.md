@@ -13,12 +13,12 @@ on the `send feedback` button at the bottom right of this window.
 
 3. Here is where you can get more help with Atom
 
-  * The [Atom docs](https://www.atom.io/docs) contain Guides and an API
+  * The [Atom docs](https://www.atom.io/docs) contain Guides and the API
 reference.
   * `##atom` the [Atom IRC Channel](http://webchat.freenode.net/?channels=##atom).
 Chat with other Atom developers on freenode.
   * The [Atom Org](https://github.com/atom). This is where all GitHub created Atom
-packages are stored.
+packages can be found.
 
 4. If you ever want to see this buffer again use the command palette
 (`cmd-shift-P`) and search for `Welcome`.
