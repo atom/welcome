@@ -20,6 +20,7 @@ you need to know.
 
    * The [Atom docs](https://www.atom.io/docs) contain Guides and the API
      reference.
+   * Discuss Atom at [discuss.atom.io](discuss.atom.io).
    * `##atom` the [Atom IRC Channel](http://webchat.freenode.net/?channels=##atom).
      Chat with other Atom developers on freenode.
    * The [Atom Org](https://github.com/atom). This is where all GitHub created Atom
