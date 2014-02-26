@@ -17,6 +17,7 @@ you need to know.
    Analytics. See [atom/metrics](https://github.com/atom/metrics) for details.
 
 5. Here is where you can get more help with Atom
+
    * The [Atom docs](https://www.atom.io/docs) contain Guides and the API
      reference.
    * `##atom` the [Atom IRC Channel](http://webchat.freenode.net/?channels=##atom).
