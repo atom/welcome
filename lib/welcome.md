@@ -3,7 +3,10 @@
 You are one of the first people to use GitHub's new text editor! Here is what
 you need to know.
 
-1. Atom is free during the beta period.
+1. Atom is free during the beta period. To help us improve the editor, Atom
+   sends anonymous usage information to Google Analytics. See
+   [atom/metrics](https://github.com/atom/metrics) for details on what
+   information is tracked and how to disable.
 
 2. If you only remember one thing make it `cmd-shift-P`. This keystroke toggles
    the command palette, which lists every Atom command. Yes, you can try it now!
@@ -12,17 +15,6 @@ you need to know.
 
 3. We want your feedback! If you have anything positive or negative to say click
    on the `Send Feedback` button at the bottom right of this window.
-
-4. To help us improve the editor, Atom sends usage information to Google
-   Analytics. See [atom/metrics](https://github.com/atom/metrics) for details.
-
-   * We're tracking generic metrics like the version number, load time, session
-     length, and a count of how many times a user opens a new pane item
-   * No data about filenames or file contents is tracked
-   * You can disable this by opening the settings, clicking on the 'Metrics'
-     package in the left sidebar, and clicking the disable button
-   * This information is very helpful to help spot issues early, and generally
-     make the editor experience better
 
 5. Here is where you can get more help with Atom
 
