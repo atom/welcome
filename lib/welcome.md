@@ -16,6 +16,14 @@ you need to know.
 4. To help us improve the editor, Atom sends usage information to Google
    Analytics. See [atom/metrics](https://github.com/atom/metrics) for details.
 
+   * We're tracking generic metrics like the version number, load time, session
+     length, and a count of how many times a user opens a new pane item
+   * No data about filenames or file contents is tracked
+   * You can disable this by opening the settings, clicking on the 'Metrics'
+     package in the left sidebar, and clicking the disable button
+   * This information is very helpful to help spot issues early, and generally
+     make the editor experience better
+
 5. Here is where you can get more help with Atom
 
    * The [Atom docs](https://www.atom.io/docs) contain Guides and the API
