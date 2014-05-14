@@ -1,8 +1,8 @@
 # Welcome to the Atom!
 
-1. To help us improve the editor, Atom sends anonymous usage information. See
-[atom/metrics](https://github.com/atom/metrics) for details on how to disable
-the metrics package and what information is tracked.
+1. To help us improve Atom, we anonymously track usage metrics. See the
+[atom/metrics](https://github.com/atom/metrics) package for details on what
+information is tracked and for instructions on how to disable it.
 
 2. If you only remember one thing make it `cmd-shift-P`. This keystroke toggles
    the command palette, which lists every Atom command. Yes, you can try it now!
