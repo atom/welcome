@@ -11,4 +11,5 @@ module.exports =
       atom.config.set('welcome.showOnStartup', false)
 
   show: ->
-    atom.workspaceView.open path.join(__dirname, 'welcome.md')
+    welcomePath = path.resolve(__dirname, '..', 'docs', process.platform, 'welcome.md')
+    atom.workspaceView.open welcomePath
