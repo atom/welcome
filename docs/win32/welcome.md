@@ -1,4 +1,4 @@
-# Welcome to the Atom!
+# Welcome to Atom!
 
 1. To help us improve Atom, we anonymously track usage metrics. See the
 [atom/metrics](https://github.com/atom/metrics) package for details on what
