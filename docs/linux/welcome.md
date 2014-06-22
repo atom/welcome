@@ -9,7 +9,7 @@ information is tracked and for instructions on how to disable it.
    Press `ctrl-shift-P`, type `markdown` and press enter. It will trigger the
   `markdown-preview:show` command which renders this text to HTML.
 
-4. Here is where you can get more help with Atom
+3. Here is where you can get more help with Atom
 
    * The [Atom docs](https://www.atom.io/docs) contain Guides and the API
      reference.
@@ -17,5 +17,5 @@ information is tracked and for instructions on how to disable it.
    * The [Atom Org](https://github.com/atom). This is where all GitHub created Atom
      packages can be found.
 
-5. If you ever want to see this buffer again use the command palette
+4. If you ever want to see this buffer again use the command palette
    (`ctrl-shift-P`) and search for `Welcome`.
