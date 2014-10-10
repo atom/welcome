@@ -14,8 +14,8 @@
    * The [Atom docs](https://www.atom.io/docs) contain Guides and the API
      reference.
    * Discuss Atom at [discuss.atom.io](http://discuss.atom.io).
-   * The [Atom Org](https://github.com/atom). This is where all GitHub created Atom
-     packages can be found.
+   * The [Atom Org](https://github.com/atom). This is where all GitHub created
+     Atom packages can be found.
 
 4. If you ever want to see this buffer again use the command palette
    (`ctrl-shift-P`) and search for `Welcome`.
