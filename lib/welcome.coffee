@@ -1,8 +1,10 @@
 path = require 'path'
 
 module.exports =
-  configDefaults:
-    showOnStartup: true
+  config:
+    showOnStartup:
+      type: 'boolean'
+      default: true
 
   activate: ->
     atom.commands.add 'atom-workspace', 'welcome:show-welcome-buffer', => @show()
