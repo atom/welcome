@@ -34,7 +34,6 @@ describe "Welcome", ->
 
       atom.commands.dispatch(workspaceElement, 'welcome:show-welcome-buffer')
 
-      editor = null
       waitsFor ->
         editor = atom.workspace.getActiveTextEditor()
 
