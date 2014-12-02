@@ -1,14 +1,14 @@
 describe "Welcome", ->
-  openFileTimeout = 200
+  editor = null
 
   beforeEach ->
     waitsForPromise ->
       atom.packages.activatePackage("welcome")
-    waits(openFileTimeout)
+    waitsFor ->
+      editor = atom.workspace.getActiveTextEditor()
 
   describe "when activated for the first time", ->
     it "shows the welcome buffer", ->
-      editor = atom.workspace.getPaneItems()[0]
       expect(editor.getText()).toMatch(/Welcome to Atom/)
 
   describe "when activated again", ->
@@ -18,7 +18,7 @@ describe "Welcome", ->
 
       waitsForPromise ->
         atom.packages.activatePackage("welcome")
-      waits(openFileTimeout)
+      waits(200)
 
     it "doesn't show the welcome buffer", ->
       expect(atom.workspace.getPaneItems().length).toBe(0)
@@ -33,8 +33,10 @@ describe "Welcome", ->
       atom.workspace.getActivePane().destroy()
 
       atom.commands.dispatch(workspaceElement, 'welcome:show-welcome-buffer')
-      waits(openFileTimeout)
+
+      editor = null
+      waitsFor ->
+        editor = atom.workspace.getActiveTextEditor()
 
       runs ->
-        editor = atom.workspace.getPaneItems()[0]
         expect(editor.getText()).toMatch(/Welcome to Atom/)
