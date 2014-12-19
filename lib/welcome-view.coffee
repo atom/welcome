@@ -5,7 +5,9 @@ module.exports =
 class WelcomeView extends ScrollView
   @content: ->
     @div class: 'welcome', =>
-      @h1 'Welcome to Atom'
+      @header class: 'welcome-header', =>
+        @img class: 'welcome-logo', src: 'atom://welcome/assets/logo.png'
+        @h1 class: 'welcome-title', 'A hackable text editor for the 21st Century'
 
   @deserialize: (options={}) ->
     new WelcomeView(options)
