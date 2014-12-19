@@ -1,11 +1,14 @@
 @import "ui-variables";
 
 .welcome {
+  padding: 0 2em;
+  font-size: 1.2em;
   color: @text-color;
   background-color: @base-background-color;
+  overflow-x: auto;
 
   &-header {
-    margin: 10em 1em;
+    margin: 10em 0;
   }
 
   &-logo {
@@ -17,4 +20,49 @@
   &-title {
     text-align: center;
   }
+
+  &-panel {
+    max-width: 600px;
+    margin: 2em auto;
+  }
+
+  &-card {
+    margin: 2em 0;
+    padding: 1em 1.5em;
+    border-radius: @component-border-radius*2;
+    border: 1px solid @base-border-color;
+    background-color: lighten(@base-background-color, 2%);
+  }
+
+  &-summary {
+    font-size: 1.6em;
+    font-weight: 300;
+    line-height: 1.5;
+    cursor: pointer;
+    &:hover {
+      color: lighten(@text-color, 4%);
+    }
+    &::-webkit-details-marker {
+      display: none
+    }
+    &:before {
+      width: 20px;
+      color: @text-color-subtle;
+      vertical-align: middle;
+    }
+    details[open] & {
+      color: @text-color-highlight;
+    }
+  }
+
+  &-highlight {
+    color: @text-color-highlight;
+  }
+
+  &-detail {
+    font-size: 1.1em;
+    line-height: 1.2;
+    margin: .75em 26px;
+  }
+
 }
