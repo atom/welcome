@@ -7,6 +7,18 @@
   background-color: @base-background-color;
   overflow-x: auto;
 
+  // Overrides ----------------------
+
+  p {
+    line-height: inherit;
+  }
+
+  a {
+    color: @text-color-info;
+  }
+
+  // Components ----------------------
+
   &-header {
     margin: 6em 0;
   }
@@ -18,13 +30,14 @@
   }
 
   &-title {
+    font-size: 1.6em;
     text-align: center;
     line-height: 1.3;
   }
 
   &-panel {
     max-width: 600px;
-    margin: 2em auto;
+    margin: 6em auto;
   }
 
   &-card {
@@ -75,6 +88,17 @@
     color: @text-color-highlight;
     border: 1px solid @text-color-subtle;
     background: hsla(0,0%,0%,.1);
+  }
+
+  &-note {
+    margin-top: 2em;
+    font-size: .86em;
+    color: @text-color-subtle;
+  }
+
+  &-footer {
+    margin: 0 0 6em 0;
+    text-align: center;
   }
 
 }

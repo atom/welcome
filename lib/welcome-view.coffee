@@ -9,7 +9,7 @@ class WelcomeView extends ScrollView
         @img class: 'welcome-logo', src: 'atom://welcome/assets/logo.png'
         @h1 class: 'welcome-title', 'A hackable text editor for the 21st Century'
 
-      @div class: 'welcome-panel', =>
+      @section class: 'welcome-panel', =>
         @details class: 'welcome-card', =>
           @summary class: 'welcome-summary icon icon-package', =>
             @raw 'Install a <span class="welcome-highlight">Package</span>'
@@ -70,6 +70,19 @@ class WelcomeView extends ScrollView
               @span class: 'text-highlight', 'Welcome'
               @raw '.'
 
+      @section class:'welcome-panel', =>
+        @p 'For more help, please visit:'
+        @ul =>
+          @li => @raw 'The <a href="https://www.atom.io/docs">Atom docs</a> contain Guides and the API reference.'
+          @li => @raw 'Discuss Atom at <a href="http://discuss.atom.io">discuss.atom.io</a>.'
+          @li => @raw 'The <a href="https://github.com/atom">Atom Org</a>. This is where all GitHub created Atom packages can be found.'
+        @p class: 'welcome-note', =>
+           @raw '<strong>Note:</strong> To help us improve Atom, we anonymously track usage metrics. See the
+           <a href="https://github.com/atom/metrics">atom/metrics</a> package for details on what
+           information is tracked and for instructions on how to disable it.'
+
+      @footer class:'welcome-footer', =>
+        @raw '<a href="https://atom.io/">atom.io</a> <span class="text-subtle">×</span> <a class="icon icon-octoface" href="https://github.com/"></a>'
 
   @deserialize: (options={}) ->
     new WelcomeView(options)
