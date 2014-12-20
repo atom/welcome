@@ -28,8 +28,8 @@ class WelcomeView extends ScrollView
                 @raw 'Now you can search for new packages or check out the featured ones.'
               @li =>
                 @raw 'After you installed a new package, click the "Settings" button. In the detail view you might find options to configure and adjust to your needs.'
-
-            @p '''Keep in mind that adding a lot of packages will increase startup time. You can also temorarly disable a package if you're not sure about deleting it completely.'''
+            @p =>
+              @img class: 'welcome-img', src: 'atom://welcome/assets/packages.png'
 
         @details class: 'welcome-card', =>
           @summary class: 'welcome-summary icon icon-paintcan', =>
@@ -44,9 +44,12 @@ class WelcomeView extends ScrollView
                 @kbd class: 'welcome-key', 'cmd-,'
                 @raw ' key.'
               @li =>
-                @raw 'Click the "Themes" menu item.'
+                @raw 'Click the <span class="text-highlight">Themes</span> menu item.'
               @li =>
-                @raw 'Then under "Choose a Theme" you can pick one from the drop down.'
+                @raw 'Then under <span class="text-highlight">Choose a Theme</span> you can pick one from the drop down.'
+            @p =>
+              @img class: 'welcome-img', src: 'atom://welcome/assets/themes.png'
+
             @p '''You can also try out themes created by the Atom community. To install new Themes, follow the steps under "Install a Package", but switch the toggle to "themes" before searching.'''
 
         @details class: 'welcome-card', =>
@@ -69,6 +72,9 @@ class WelcomeView extends ScrollView
               @raw ' and search for '
               @span class: 'text-highlight', 'Welcome'
               @raw '.'
+            @p =>
+              @img class: 'welcome-img', src: 'atom://welcome/assets/shortcuts.png'
+
 
       @section class:'welcome-panel', =>
         @p 'For more help, please visit:'
