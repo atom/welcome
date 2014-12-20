@@ -13,20 +13,62 @@ class WelcomeView extends ScrollView
         @details class: 'welcome-card', =>
           @summary class: 'welcome-summary icon icon-package', =>
             @raw 'Install a <span class="welcome-highlight">Package</span>'
-          @p class: 'welcome-detail', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.'
+          @div class: 'welcome-detail', =>
+            @p '''A great thing about Atom is that you can install packages which add new features and functionality fitting your needs. Let's install one.'''
+            @ol =>
+              @li =>
+                @raw 'Open the settings, either by '
+                @span class: 'text-highlight', 'Menu > Preferences'
+                @raw ' or '
+                @kbd class: 'welcome-key', 'cmd-,'
+                @raw ' key.'
+              @li =>
+                @raw 'Click the "Install" menu item.'
+              @li =>
+                @raw 'Now you can search for new packages or check out the featured ones.'
+              @li =>
+                @raw 'After you installed a new package, click the "Settings" button. In the detail view you might find options to configure and adjust to your needs.'
+
+            @p '''Keep in mind that adding a lot of packages will increase startup time. You can also temorarly disable a package if you're not sure about deleting it completely.'''
 
         @details class: 'welcome-card', =>
           @summary class: 'welcome-summary icon icon-paintcan', =>
             @raw 'Pick a <span class="welcome-highlight">Theme</span>'
-          @p class: 'welcome-detail',
-            '''Atom comes with a few preinstalled themes. Let's try a few.'''
-          @p class: 'welcome-detail',
-            'Open the settings, either by Menu > Preferences or [cmd-,] key. Click the "Themes" menu item. And under "Choose a Theme" you can pick one from the drop down.'
+          @div class: 'welcome-detail', =>
+            @p '''Atom comes with a few preinstalled themes. Let's try a few.'''
+            @ol =>
+              @li =>
+                @raw 'Open the settings, either by '
+                @span class: 'text-highlight', 'Menu > Preferences'
+                @raw ' or '
+                @kbd class: 'welcome-key', 'cmd-,'
+                @raw ' key.'
+              @li =>
+                @raw 'Click the "Themes" menu item.'
+              @li =>
+                @raw 'Then under "Choose a Theme" you can pick one from the drop down.'
+            @p '''You can also try out themes created by the Atom community. To install new Themes, follow the steps under "Install a Package", but switch the toggle to "themes" before searching.'''
 
         @details class: 'welcome-card', =>
           @summary class: 'welcome-summary icon icon-keyboard', =>
             @raw 'Learn some <span class="welcome-highlight">Shortcuts</span>'
-          @p class: 'welcome-detail', 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.'
+          @div class: 'welcome-detail', =>
+            @p =>
+              @raw 'If you only remember one thing make it '
+              @kbd class: 'welcome-key', 'cmd-shift-P'
+              @raw '. This keystroke toggles the command palette, which lists every Atom command. Yes, you can try it now! Press '
+              @kbd class: 'welcome-key', 'cmd-shift-P'
+              @raw ', type '
+              @span class: 'text-highlight', 'markdown'
+              @raw ' and press enter. It will trigger the '
+              @span class: 'text-highlight', 'markdown-preview:show'
+              @raw ' command which renders this text to HTML.'
+            @p =>
+              @raw 'If you ever want to see these guides again use the command palette '
+              @kbd class: 'welcome-key', 'cmd-shift-P'
+              @raw ' and search for '
+              @span class: 'text-highlight', 'Welcome'
+              @raw '.'
 
 
   @deserialize: (options={}) ->
