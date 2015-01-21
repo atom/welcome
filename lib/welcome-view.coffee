@@ -10,6 +10,24 @@ class WelcomeView extends ScrollView
         @h1 class: 'welcome-title', 'A hackable text editor for the 21st Century'
 
       @section class: 'welcome-panel', =>
+
+        @h2 class: 'welcome-panel-title', 'Get to know Atom!'
+
+        @details class: 'welcome-card', =>
+          @summary class: 'welcome-summary icon icon-package', =>
+            @raw 'Open a <span class="welcome-highlight">Project</span>'
+          @div class: 'welcome-detail', =>
+            @p '''In Atom, you can open individual files or a whole folder as a project. Let's try that! There are several ways:'''
+            @ol =>
+              @li =>
+                @span class: 'text-highlight', 'Menu > File > Open...'
+              @li =>
+                @raw 'Via keyboard shortcut '
+                @kbd class: 'welcome-key', 'cmd-o'
+              @li =>
+                @raw 'Or by dragging a folder onto the dock icon.'
+            @p '''Then in the opened dialog, choose a folder you would like to open as a project. On the left you get a tree view with all the your files.'''
+
         @details class: 'welcome-card', =>
           @summary class: 'welcome-summary icon icon-package', =>
             @raw 'Install a <span class="welcome-highlight">Package</span>'
@@ -51,6 +69,33 @@ class WelcomeView extends ScrollView
               @img class: 'welcome-img', src: 'atom://welcome/assets/themes.png'
 
             @p '''You can also try out themes created by the Atom community. To install new Themes, follow the steps under "Install a Package", but switch the toggle to "themes" before searching.'''
+
+        @details class: 'welcome-card', =>
+          @summary class: 'welcome-summary icon icon-keyboard', =>
+            @raw 'Customize the <span class="welcome-highlight">Styling</span>'
+          @div class: 'welcome-detail', =>
+            @p '''You can customize pretty much anything by adding your own CSS/LESS. As an example, let's change the cursor color.'''
+            @ol =>
+              @li =>
+                @button class: 'btn btn-primary', 'Open your Stylesheet'
+              @li =>
+                @raw 'Copy&Paste the following:'
+                @code =>
+                  @pre 'atom-text-editor::shadow .cursor { border-color: yellow; }'
+              @li =>
+                @raw 'Then save! And your cursor should turn yellow.'
+
+        @details class: 'welcome-card', =>
+          @summary class: 'welcome-summary icon icon-keyboard', =>
+            @raw 'Add a <span class="welcome-highlight">Snippet</span>'
+          @div class: 'welcome-detail', =>
+            @p '''Using code snippets is a great way to speed up your coding. Let's add one:'''
+            @ol =>
+              @li =>
+                @button class: 'btn btn-primary', 'Open your Snippets'
+              @li =>
+                @raw 'Then uncomment the example.'
+
 
         @details class: 'welcome-card', =>
           @summary class: 'welcome-summary icon icon-keyboard', =>
