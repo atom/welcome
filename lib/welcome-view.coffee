@@ -83,9 +83,8 @@ class WelcomeView extends ScrollView
           @li => @raw 'Discuss Atom at <a href="http://discuss.atom.io">discuss.atom.io</a>.'
           @li => @raw 'The <a href="https://github.com/atom">Atom Org</a>. This is where all GitHub created Atom packages can be found.'
         @p class: 'welcome-note', =>
-           @raw '<strong>Note:</strong> To help us improve Atom, we anonymously track usage metrics. See the
-           <a href="https://github.com/atom/metrics">atom/metrics</a> package for details on what
-           information is tracked and for instructions on how to disable it.'
+           @raw '<strong>Note:</strong> To help us improve Atom, we anonymously track usage metrics, such as launch time, screen size, used version etc. See the
+           <a href="https://github.com/atom/metrics">atom/metrics</a> package for details and for instructions on how to disable it.'
 
       @footer class:'welcome-footer', =>
         @raw '<a href="https://atom.io/">atom.io</a> <span class="text-subtle">×</span> <a class="icon icon-octoface" href="https://github.com/"></a>'
