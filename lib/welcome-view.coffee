@@ -14,7 +14,7 @@ class WelcomeView extends ScrollView
         @h2 class: 'welcome-panel-title', 'Get to know Atom!'
 
         @details class: 'welcome-card', =>
-          @summary class: 'welcome-summary icon icon-package', =>
+          @summary class: 'welcome-summary icon icon-repo', =>
             @raw 'Open a <span class="welcome-highlight">Project</span>'
           @div class: 'welcome-detail', =>
             @p '''In Atom, you can open individual files or a whole folder as a project. Let's try that! There are several ways:'''
@@ -71,7 +71,7 @@ class WelcomeView extends ScrollView
             @p '''You can also try out themes created by the Atom community. To install new Themes, follow the steps under "Install a Package", but switch the toggle to "themes" before searching.'''
 
         @details class: 'welcome-card', =>
-          @summary class: 'welcome-summary icon icon-keyboard', =>
+          @summary class: 'welcome-summary icon icon-paintcan', =>
             @raw 'Customize the <span class="welcome-highlight">Styling</span>'
           @div class: 'welcome-detail', =>
             @p '''You can customize pretty much anything by adding your own CSS/LESS. As an example, let's change the cursor color.'''
@@ -86,7 +86,15 @@ class WelcomeView extends ScrollView
                 @raw 'Then save! And your cursor should turn yellow.'
 
         @details class: 'welcome-card', =>
-          @summary class: 'welcome-summary icon icon-keyboard', =>
+          @summary class: 'welcome-summary icon icon-code', =>
+            @raw 'Hack on the <span class="welcome-highlight">Init Script</span>'
+          @div class: 'welcome-detail', =>
+            @p '''If you like to hack on how Atom works, add your own scripts.'''
+            @p =>
+              @button class: 'btn btn-primary', 'Open your Init Script'
+
+        @details class: 'welcome-card', =>
+          @summary class: 'welcome-summary icon icon-code', =>
             @raw 'Add a <span class="welcome-highlight">Snippet</span>'
           @div class: 'welcome-detail', =>
             @p '''Using code snippets is a great way to speed up your coding. Let's add one:'''
@@ -95,7 +103,6 @@ class WelcomeView extends ScrollView
                 @button class: 'btn btn-primary', 'Open your Snippets'
               @li =>
                 @raw 'Then uncomment the example.'
-
 
         @details class: 'welcome-card', =>
           @summary class: 'welcome-summary icon icon-keyboard', =>
