@@ -7,7 +7,7 @@
 2. If you only remember one thing make it `cmd-shift-P`. This keystroke toggles
    the command palette, which lists every Atom command. Yes, you can try it now!
    Press `cmd-shift-P`, type `markdown` and press enter. It will trigger the
-   `markdown-preview:show` command which renders this text to HTML.
+   `Markdown Preview: Toggle` command which renders this text to HTML.
 
 3. Here is where you can get more help with Atom
 
