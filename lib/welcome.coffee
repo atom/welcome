@@ -1,13 +1,22 @@
 {CompositeDisposable} = require 'atom'
 WelcomeUri = 'atom://welcome'
+GuideUri = 'atom://welcome'
 
 createWelcomeView = (state) ->
   WelcomeView = require './welcome-view'
   new WelcomeView(state)
 
+createGuideView = (state) ->
+  GuideView = require './guide-view'
+  new GuideView(state)
+
 atom.deserializers.add
   name: 'WelcomeView'
   deserialize: (state) -> createWelcomeView(state)
+
+atom.deserializers.add
+  name: 'GuideView'
+  deserialize: (state) -> createGuideView(state)
 
 module.exports =
 
@@ -20,6 +29,7 @@ module.exports =
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.workspace.addOpener (filePath) ->
       createWelcomeView(uri: WelcomeUri) if filePath is WelcomeUri
+      createGuideView(uri: GuideUri) if filePath is GuideUri
     @subscriptions.add atom.commands.add 'atom-workspace', 'welcome:show', => @show()
     if atom.config.get('welcome.showOnStartup')
       @show()
@@ -30,6 +40,7 @@ module.exports =
 
   show: ->
     atom.workspace.open(WelcomeUri)
+    atom.workspace.open(GuideUri, split: 'right')
 
   deactivate: ->
     @subscriptions.dispose()
