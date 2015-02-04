@@ -22,7 +22,7 @@ class WelcomeView extends ScrollView
               @img class: 'welcome-img', src: 'atom://welcome/assets/project.svg'
             @p '''In Atom you can open individual files or a whole folder as a project. It will add a tree view on the left where you can browse all the files.'''
             @p =>
-              @button class: 'btn btn-primary', 'Open a Project'
+              @button outlet: 'projectButton', class: 'btn btn-primary', 'Open a Project'
             @p class: 'welcome-note', =>
                @raw '<strong>Next time:</strong> You can also open projects from the menu, keyboard shortcut or dragging a folder onto the Atom dock icon.'
 
@@ -36,7 +36,7 @@ class WelcomeView extends ScrollView
               @img class: 'welcome-img', src: 'atom://welcome/assets/package.svg'
             @p '''A great thing about Atom is that you can install packages which add new features and functionality fitting your needs. Let's install one.'''
             @p =>
-              @button class: 'btn btn-primary', 'Open a Project'
+              @button outlet: 'packagesButton', class: 'btn btn-primary', 'Open Installer'
             @p class: 'welcome-note', =>
                @raw '<strong>Next time:</strong> You can install new packages in the settings.'
 
@@ -44,13 +44,13 @@ class WelcomeView extends ScrollView
         # Themes
         @details class: 'welcome-card', =>
           @summary class: 'welcome-summary icon icon-paintcan', =>
-            @raw 'Pick a <span class="welcome-highlight">Theme</span>'
+            @raw 'Choose a <span class="welcome-highlight">Theme</span>'
           @div class: 'welcome-detail', =>
             @p =>
               @img class: 'welcome-img', src: 'atom://welcome/assets/theme.svg'
             @p '''Atom comes with preinstalled themes. Let's try a few.'''
             @p =>
-              @button class: 'btn btn-primary', 'Open the theme picker'
+              @button outlet: 'themesButton', class: 'btn btn-primary', 'Open the theme picker'
             @p '''You can also try out themes created by the Atom community. To install new themes, click on "+ Install" and switch the toggle to "themes".'''
             @p class: 'welcome-note', =>
                @raw '<strong>Next time:</strong> You can switch themes in the settings.'
@@ -65,7 +65,7 @@ class WelcomeView extends ScrollView
               @img class: 'welcome-img', src: 'atom://welcome/assets/code.svg'
             @p '''You can customize pretty much anything by adding your own CSS/LESS.'''
             @p =>
-              @button class: 'btn btn-primary', 'Open your Styleshet'
+              @button outlet: 'stylingButton', class: 'btn btn-primary', 'Open your Styleshet'
             @p '''Now uncomment some of the examples or try your own.'''
             @p class: 'welcome-note', =>
                @raw '<strong>Next time:</strong> You can open your styleshet in Menu > Atom.'
@@ -80,11 +80,10 @@ class WelcomeView extends ScrollView
               @img class: 'welcome-img', src: 'atom://welcome/assets/code.svg'
             @p '''If you like to hack on how Atom works, you can do so by adding init scripts.'''
             @p =>
-              @button class: 'btn btn-primary', 'Open your Init Script'
+              @button outlet: 'initScriptButton', class: 'btn btn-primary', 'Open your Init Script'
             @p '''Now uncomment some of the examples or try your own.'''
             @p class: 'welcome-note', =>
                @raw '<strong>Next time:</strong> You can open your init script in Menu > Atom.'
-
 
 
         # Snippets
@@ -96,7 +95,7 @@ class WelcomeView extends ScrollView
               @img class: 'welcome-img', src: 'atom://welcome/assets/code.svg'
             @p '''Using code snippets is a great way to speed up your coding. Let's add some.'''
             @p =>
-              @button class: 'btn btn-primary', 'Open your Snippets'
+              @button outlet: 'snippetsButton', class: 'btn btn-primary', 'Open your Snippets'
             @p '''Now uncomment some of the examples or try your own.'''
             @p class: 'welcome-note', =>
                @raw '<strong>Next time:</strong> You can open your snippets in Menu > Atom.'
@@ -132,6 +131,22 @@ class WelcomeView extends ScrollView
 
       @footer class:'welcome-footer', =>
         @raw '<a href="https://atom.io/">atom.io</a> <span class="text-subtle">×</span> <a class="icon icon-octoface" href="https://github.com/"></a>'
+
+
+  initialize: ->
+    @projectButton.on 'click', =>
+      atom.commands.dispatch(atom.views.getView(atom.workspace), 'application:open')
+    @packagesButton.on 'click', =>
+      atom.commands.dispatch(atom.views.getView(atom.workspace), 'settings-view:install-packages-and-themes')
+    @themesButton.on 'click', =>
+      atom.commands.dispatch(atom.views.getView(atom.workspace), 'settings-view:change-themes')
+    @stylingButton.on 'click', =>
+      atom.commands.dispatch(atom.views.getView(atom.workspace), 'application:open-your-stylesheet')
+    @initScriptButton.on 'click', =>
+      atom.commands.dispatch(atom.views.getView(atom.workspace), 'application:open-your-init-script')
+    @snippetsButton.on 'click', =>
+      atom.commands.dispatch(atom.views.getView(atom.workspace), 'application:open-your-snippets')
+
 
   @deserialize: (options={}) ->
     new WelcomeView(options)
