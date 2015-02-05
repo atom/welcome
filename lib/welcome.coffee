@@ -1,6 +1,6 @@
 {CompositeDisposable} = require 'atom'
-WelcomeUri = 'atom://welcome'
-GuideUri = 'atom://guide'
+WelcomeUri = 'atom://welcome/welcome'
+GuideUri = 'atom://welcome/guide'
 
 createWelcomeView = (state) ->
   WelcomeView = require './welcome-view'
