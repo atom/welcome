@@ -1,6 +1,6 @@
 {CompositeDisposable} = require 'atom'
 WelcomeUri = 'atom://welcome'
-GuideUri = 'atom://welcome'
+GuideUri = 'atom://guide'
 
 createWelcomeView = (state) ->
   WelcomeView = require './welcome-view'
@@ -29,6 +29,7 @@ module.exports =
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.workspace.addOpener (filePath) ->
       createWelcomeView(uri: WelcomeUri) if filePath is WelcomeUri
+    @subscriptions.add atom.workspace.addOpener (filePath) ->
       createGuideView(uri: GuideUri) if filePath is GuideUri
     @subscriptions.add atom.commands.add 'atom-workspace', 'welcome:show', => @show()
     if atom.config.get('welcome.showOnStartup')
