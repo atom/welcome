@@ -11,7 +11,7 @@ class WelcomeView extends ScrollView
           @h1 class: 'welcome-title', 'A hackable text editor for the 21st Century'
 
         @section class:'welcome-panel', =>
-          @p 'There is a lot more to discover. For help, please visit:'
+          @p 'For help, please visit:'
           @ul =>
             @li => @raw 'The <a href="https://www.atom.io/docs">Atom docs</a> contain Guides and the API reference.'
             @li => @raw 'Discuss Atom at <a href="http://discuss.atom.io">discuss.atom.io</a>.'
