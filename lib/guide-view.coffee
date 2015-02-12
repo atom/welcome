@@ -134,7 +134,7 @@ class GuideView extends ScrollView
 
   getUri: -> @uri
 
-  getTitle: -> "Guide"
+  getTitle: -> "Welcome Guide"
 
   onDidChangeTitle: -> new Disposable ->
   onDidChangeModified: -> new Disposable ->
