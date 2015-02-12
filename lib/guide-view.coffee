@@ -17,11 +17,19 @@ class GuideView extends ScrollView
             @div class: 'welcome-detail', =>
               @p =>
                 @img class: 'welcome-img', src: 'atom://welcome/assets/project.svg'
-              @p '''In Atom you can open individual files or a whole folder as a project. It will add a tree view on the left where you can browse all the files.'''
+              @p '''
+                  In Atom you can open individual files or a whole folder as a
+                  project. Opening a folder will add a tree view to the editor
+                  where you can browse all the files.
+                '''
               @p =>
                 @button outlet: 'projectButton', class: 'btn btn-primary', 'Open a Project'
               @p class: 'welcome-note', =>
-                 @raw '<strong>Next time:</strong> You can also open projects from the menu, keyboard shortcut or dragging a folder onto the Atom dock icon.'
+                 @raw '''
+                    <strong>Next time:</strong> You can also open projects from
+                    the menu, keyboard shortcut or by dragging a folder onto the
+                    Atom dock icon.
+                  '''
 
           # Packages
           @details class: 'welcome-card', 'data-section': 'packages', =>
@@ -30,11 +38,15 @@ class GuideView extends ScrollView
             @div class: 'welcome-detail', =>
               @p =>
                 @img class: 'welcome-img', src: 'atom://welcome/assets/package.svg'
-              @p '''A great thing about Atom is that you can install packages which add new features and functionality fitting your needs. Let's install one.'''
+              @p '''
+                  One of the best things about Atom is the package ecosystem.
+                  Installing packages adds new features and functionality you
+                  can use to make the editor suit your needs. Let's install one.
+                '''
               @p =>
                 @button outlet: 'packagesButton', class: 'btn btn-primary', 'Open Installer'
               @p class: 'welcome-note', =>
-                 @raw '<strong>Next time:</strong> You can install new packages in the settings.'
+                 @raw '<strong>Next time:</strong> You can install new packages from the settings.'
 
           # Themes
           @details class: 'welcome-card', 'data-section': 'themes', =>
@@ -46,9 +58,13 @@ class GuideView extends ScrollView
               @p '''Atom comes with preinstalled themes. Let's try a few.'''
               @p =>
                 @button outlet: 'themesButton', class: 'btn btn-primary', 'Open the theme picker'
-              @p '''You can also try out themes created by the Atom community. To install new themes, click on "+ Install" and switch the toggle to "themes".'''
+              @p '''
+                  You can also install themes created by the Atom community. To
+                  install new themes, click on "+ Install" and switch the toggle
+                  to "themes".
+                '''
               @p class: 'welcome-note', =>
-                 @raw '<strong>Next time:</strong> You can switch themes in the settings.'
+                 @raw '<strong>Next time:</strong> You can switch themes from the settings.'
 
           # Styling
           @details class: 'welcome-card', 'data-section': 'styling', =>
@@ -57,12 +73,12 @@ class GuideView extends ScrollView
             @div class: 'welcome-detail', =>
               @p =>
                 @img class: 'welcome-img', src: 'atom://welcome/assets/code.svg'
-              @p '''You can customize pretty much anything by adding your own CSS/LESS.'''
+              @p '''You can customize almost anything by adding your own CSS/LESS.'''
               @p =>
                 @button outlet: 'stylingButton', class: 'btn btn-primary', 'Open your Styleshet'
               @p '''Now uncomment some of the examples or try your own.'''
               @p class: 'welcome-note', =>
-                 @raw '<strong>Next time:</strong> You can open your styleshet in Menu > Atom.'
+                 @raw '<strong>Next time:</strong> You can open your styleshet from Menu > Atom.'
 
           # Init Script
           @details class: 'welcome-card', 'data-section': 'init-script', =>
@@ -71,12 +87,16 @@ class GuideView extends ScrollView
             @div class: 'welcome-detail', =>
               @p =>
                 @img class: 'welcome-img', src: 'atom://welcome/assets/code.svg'
-              @p '''If you like to hack on how Atom works, you can do so by adding init scripts.'''
+              @p '''
+                  The init script is a bit of JavaScript or CoffeeScript run at
+                  startup. You can use it to quickly change the behaviour of
+                  Atom.
+                '''
               @p =>
                 @button outlet: 'initScriptButton', class: 'btn btn-primary', 'Open your Init Script'
-              @p '''Now uncomment some of the examples or try your own.'''
+              @p '''Uncomment some of the examples or try out your own.'''
               @p class: 'welcome-note', =>
-                 @raw '<strong>Next time:</strong> You can open your init script in Menu > Atom.'
+                 @raw '<strong>Next time:</strong> You can open your init script from Menu > Atom.'
 
           # Snippets
           @details class: 'welcome-card', 'data-section': 'snippets', =>
@@ -85,10 +105,19 @@ class GuideView extends ScrollView
             @div class: 'welcome-detail', =>
               @p =>
                 @img class: 'welcome-img', src: 'atom://welcome/assets/code.svg'
-              @p '''Using code snippets is a great way to speed up your coding. Let's add some.'''
+              @p '''
+                  Atom snippets allow you to enter a simple prefix in the editor
+                  and hit tab to expand the prefix into a larger code block with
+                  templated values.
+                '''
               @p =>
                 @button outlet: 'snippetsButton', class: 'btn btn-primary', 'Open your Snippets'
-              @p '''Now uncomment some of the examples or try your own.'''
+              @p =>
+                @raw '''
+                    In your snippets file, type <code>snip</code> then hit
+                    <code>tab</code>. The <code>snip</code> snippet will expand
+                    to create a snippet!
+                  '''
               @p class: 'welcome-note', =>
                  @raw '<strong>Next time:</strong> You can open your snippets in Menu > Atom.'
 
@@ -104,7 +133,7 @@ class GuideView extends ScrollView
                 @kbd class: 'welcome-key', 'cmd-shift-P'
                 @raw '''. This keystroke toggles the command palette, which lists every Atom command. It's a good way to learn more shortcuts. Yes, you can try it now!'''
               @p =>
-                @raw 'ps. If you ever want to see these guides again use the command palette '
+                @raw 'If you want to use these guides again use the command palette '
                 @kbd class: 'welcome-key', 'cmd-shift-P'
                 @raw ' and search for '
                 @span class: 'text-highlight', 'Welcome'
