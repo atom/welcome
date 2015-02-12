@@ -1,5 +1,6 @@
 {Disposable} = require 'atom'
 {$, ScrollView} = require 'atom-space-pen-views'
+Reporter = require './reporter'
 
 module.exports =
 class GuideView extends ScrollView
@@ -113,17 +114,30 @@ class GuideView extends ScrollView
     (@openSection(section) for section in openSections) if openSections?
 
     @projectButton.on 'click', =>
+      Reporter.sendEvent('clicked-project-cta')
       atom.commands.dispatch(atom.views.getView(atom.workspace), 'application:open')
     @packagesButton.on 'click', =>
+      Reporter.sendEvent('clicked-packages-cta')
       atom.workspace.open('atom://config/install', split: 'left')
     @themesButton.on 'click', =>
+      Reporter.sendEvent('clicked-themes-cta')
       atom.workspace.open('atom://config/themes', split: 'left')
     @stylingButton.on 'click', =>
+      Reporter.sendEvent('clicked-styling-cta')
       atom.workspace.open('atom://.atom/stylesheet', split: 'left')
     @initScriptButton.on 'click', =>
+      Reporter.sendEvent('clicked-init-script-cta')
       atom.workspace.open('atom://.atom/init-script', split: 'left')
     @snippetsButton.on 'click', =>
+      Reporter.sendEvent('clicked-snippets-cta')
       atom.workspace.open('atom://.atom/snippets', split: 'left')
+
+    @on 'click', 'summary', ->
+      detail = $(this).parent()
+      sectionName = detail.attr('data-section')
+      isOpen = !!detail.attr('open')
+      action = if isOpen then 'collapse' else 'expand'
+      Reporter.sendEvent("#{action}-#{sectionName}-section")
 
   @deserialize: (options={}) ->
     new GuideView(options)

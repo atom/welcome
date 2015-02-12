@@ -1,13 +1,17 @@
 {CompositeDisposable} = require 'atom'
+Reporter = null
+WelcomeView = null
+GuideView = null
+
 WelcomeUri = 'atom://welcome/welcome'
 GuideUri = 'atom://welcome/guide'
 
 createWelcomeView = (state) ->
-  WelcomeView = require './welcome-view'
+  WelcomeView ?= require './welcome-view'
   new WelcomeView(state)
 
 createGuideView = (state) ->
-  GuideView = require './guide-view'
+  GuideView ?= require './guide-view'
   new GuideView(state)
 
 atom.deserializers.add
@@ -33,11 +37,17 @@ module.exports =
     @subscriptions.add atom.commands.add 'atom-workspace', 'welcome:show', => @show()
     if atom.config.get('welcome.showOnStartup')
       @show()
+      Reporter ?= require './reporter'
+      Reporter.sendEvent('show-on-initial-load')
       atom.config.set('welcome.showOnStartup', false)
 
   show: ->
     atom.workspace.open(WelcomeUri)
     atom.workspace.open(GuideUri, split: 'right')
+
+  consumeReporter: (reporter) ->
+    Reporter ?= require './reporter'
+    Reporter.setReporter(reporter)
 
   deactivate: ->
     @subscriptions.dispose()

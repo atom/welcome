@@ -1,3 +1,6 @@
+{$} = require 'atom-space-pen-views'
+Reporter = require '../lib/reporter'
+
 describe "Welcome", ->
   editor = null
 
@@ -72,3 +75,36 @@ describe "Welcome", ->
         expect(newGuideView.find("details[data-section=\"packages\"]")).not.toHaveAttr 'open'
         expect(newGuideView.find("details[data-section=\"snippets\"]")).toHaveAttr 'open'
         expect(newGuideView.find("details[data-section=\"init-script\"]")).toHaveAttr 'open'
+
+  describe "reporting events", ->
+    [panes, guideView, welcomeView] = []
+    beforeEach ->
+      panes = atom.workspace.getPanes()
+      welcomeView = panes[0].getItems()[0]
+      guideView = panes[1].getItems()[0]
+
+      spyOn(Reporter, 'sendEvent')
+
+    describe "GuideView events", ->
+      it "captures expand and collapse events", ->
+        expect(Reporter.sendEvent).not.toHaveBeenCalled()
+
+        guideView.find("details[data-section=\"packages\"] summary").click()
+        expect(Reporter.sendEvent).toHaveBeenCalledWith('expand-packages-section')
+        expect(Reporter.sendEvent).not.toHaveBeenCalledWith('collapse-packages-section')
+
+        guideView.find("details[data-section=\"packages\"]").attr('open', true)
+        guideView.find("details[data-section=\"packages\"] summary").click()
+        expect(Reporter.sendEvent).toHaveBeenCalledWith('collapse-packages-section')
+
+      it "captures button events", ->
+        spyOn(atom.commands, 'dispatch')
+        for detailElement in guideView.find('details')
+          detailElement = $(detailElement)
+          sectionName = detailElement.attr('data-section')
+          eventName = "clicked-#{sectionName}-cta"
+          primaryButton = detailElement.find('.btn-primary')
+          if primaryButton.length
+            expect(Reporter.sendEvent).not.toHaveBeenCalledWith(eventName)
+            primaryButton.click()
+            expect(Reporter.sendEvent).toHaveBeenCalledWith(eventName)
