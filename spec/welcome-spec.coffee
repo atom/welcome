@@ -8,16 +8,18 @@ describe "Welcome", ->
       atom.packages.activatePackage("welcome")
 
     waitsFor ->
-      editor = atom.workspace.getActiveTextEditor()
+      atom.workspace.open.calls.length == 2
 
   describe "when activated for the first time", ->
-    it "shows the welcome buffer", ->
-      expect(atom.workspace.open).toHaveBeenCalled()
-      expect(editor.getText()).toMatch(/Welcome to Atom/)
+    it "shows the welcome panes", ->
+      panes = atom.workspace.getPanes()
+      expect(panes).toHaveLength 2
+      expect(panes[0].getItems()[0].getTitle()).toBe 'Welcome'
+      expect(panes[1].getItems()[0].getTitle()).toBe 'Welcome Guide'
 
   describe "when activated again", ->
     beforeEach ->
-      atom.workspace.getActivePane().destroy()
+      atom.workspace.getPanes().map (pane) -> pane.destroy()
       atom.packages.deactivatePackage("welcome")
       atom.workspace.open.reset()
 
@@ -27,19 +29,22 @@ describe "Welcome", ->
     it "doesn't show the welcome buffer", ->
       expect(atom.workspace.open).not.toHaveBeenCalled()
 
-  describe "the welcome:show-welcome-buffer command", ->
+  describe "the welcome:show command", ->
     workspaceElement = null
 
     beforeEach ->
       workspaceElement = atom.views.getView(atom.workspace)
 
     it "shows the welcome buffer", ->
-      atom.workspace.getActivePane().destroy()
-
-      atom.commands.dispatch(workspaceElement, 'welcome:show-welcome-buffer')
+      atom.workspace.getPanes().map (pane) -> pane.destroy()
+      expect(atom.workspace.getActivePaneItem()).toBeUndefined()
+      atom.commands.dispatch(workspaceElement, 'welcome:show')
 
       waitsFor ->
-        editor = atom.workspace.getActiveTextEditor()
+        atom.workspace.getActivePaneItem()
 
       runs ->
-        expect(editor.getText()).toMatch(/Welcome to Atom/)
+        panes = atom.workspace.getPanes()
+        expect(panes).toHaveLength 2
+        expect(panes[0].getItems()[0].getTitle()).toBe 'Welcome'
+
