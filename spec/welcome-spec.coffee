@@ -48,3 +48,27 @@ describe "Welcome", ->
         expect(panes).toHaveLength 2
         expect(panes[0].getItems()[0].getTitle()).toBe 'Welcome'
 
+  describe "deserializing the pane items", ->
+    [panes, guideView, welcomeView] = []
+    beforeEach ->
+      panes = atom.workspace.getPanes()
+      welcomeView = panes[0].getItems()[0]
+      guideView = panes[1].getItems()[0]
+
+    describe "when GuideView is deserialized", ->
+      it "deserializes with no state", ->
+        {deserializer, uri} = guideView.serialize()
+        newGuideView = atom.deserializers.deserialize({deserializer, uri})
+
+      it "remembers open sections", ->
+        guideView.find("details[data-section=\"snippets\"]").attr('open', 'open')
+        guideView.find("details[data-section=\"init-script\"]").attr('open', 'open')
+        serialized = guideView.serialize()
+
+        expect(serialized.openSections).toEqual ['init-script', 'snippets']
+
+        newGuideView = atom.deserializers.deserialize(serialized)
+
+        expect(newGuideView.find("details[data-section=\"packages\"]")).not.toHaveAttr 'open'
+        expect(newGuideView.find("details[data-section=\"snippets\"]")).toHaveAttr 'open'
+        expect(newGuideView.find("details[data-section=\"init-script\"]")).toHaveAttr 'open'

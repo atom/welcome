@@ -46,9 +46,9 @@ class WelcomeView extends ScrollView
 
   serialize: ->
     deserializer: @constructor.name
-    uri: @getUri()
+    uri: @getURI()
 
-  getUri: -> @uri
+  getURI: -> @uri
 
   getTitle: -> "Welcome"
 

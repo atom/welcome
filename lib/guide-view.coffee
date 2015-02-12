@@ -10,7 +10,7 @@ class GuideView extends ScrollView
           @h1 class: 'welcome-title', 'Get to know Atom!'
 
           # Project
-          @details class: 'welcome-card', =>
+          @details class: 'welcome-card', 'data-section': 'project', =>
             @summary class: 'welcome-summary icon icon-repo', =>
               @raw 'Open a <span class="welcome-highlight">Project</span>'
             @div class: 'welcome-detail', =>
@@ -23,7 +23,7 @@ class GuideView extends ScrollView
                  @raw '<strong>Next time:</strong> You can also open projects from the menu, keyboard shortcut or dragging a folder onto the Atom dock icon.'
 
           # Packages
-          @details class: 'welcome-card', =>
+          @details class: 'welcome-card', 'data-section': 'packages', =>
             @summary class: 'welcome-summary icon icon-package', =>
               @raw 'Install a <span class="welcome-highlight">Package</span>'
             @div class: 'welcome-detail', =>
@@ -36,7 +36,7 @@ class GuideView extends ScrollView
                  @raw '<strong>Next time:</strong> You can install new packages in the settings.'
 
           # Themes
-          @details class: 'welcome-card', =>
+          @details class: 'welcome-card', 'data-section': 'themes', =>
             @summary class: 'welcome-summary icon icon-paintcan', =>
               @raw 'Choose a <span class="welcome-highlight">Theme</span>'
             @div class: 'welcome-detail', =>
@@ -50,7 +50,7 @@ class GuideView extends ScrollView
                  @raw '<strong>Next time:</strong> You can switch themes in the settings.'
 
           # Styling
-          @details class: 'welcome-card', =>
+          @details class: 'welcome-card', 'data-section': 'styling', =>
             @summary class: 'welcome-summary icon icon-paintcan', =>
               @raw 'Customize the <span class="welcome-highlight">Styling</span>'
             @div class: 'welcome-detail', =>
@@ -64,7 +64,7 @@ class GuideView extends ScrollView
                  @raw '<strong>Next time:</strong> You can open your styleshet in Menu > Atom.'
 
           # Init Script
-          @details class: 'welcome-card', =>
+          @details class: 'welcome-card', 'data-section': 'init-script', =>
             @summary class: 'welcome-summary icon icon-code', =>
               @raw 'Hack on the <span class="welcome-highlight">Init Script</span>'
             @div class: 'welcome-detail', =>
@@ -78,7 +78,7 @@ class GuideView extends ScrollView
                  @raw '<strong>Next time:</strong> You can open your init script in Menu > Atom.'
 
           # Snippets
-          @details class: 'welcome-card', =>
+          @details class: 'welcome-card', 'data-section': 'snippets', =>
             @summary class: 'welcome-summary icon icon-code', =>
               @raw 'Add a <span class="welcome-highlight">Snippet</span>'
             @div class: 'welcome-detail', =>
@@ -92,7 +92,7 @@ class GuideView extends ScrollView
                  @raw '<strong>Next time:</strong> You can open your snippets in Menu > Atom.'
 
           # Shortcuts
-          @details class: 'welcome-card', =>
+          @details class: 'welcome-card', 'data-section': 'shortcuts', =>
             @summary class: 'welcome-summary icon icon-keyboard', =>
               @raw 'Learn some <span class="welcome-highlight">Shortcuts</span>'
             @div class: 'welcome-detail', =>
@@ -109,8 +109,9 @@ class GuideView extends ScrollView
                 @span class: 'text-highlight', 'Welcome'
                 @raw '.'
 
+  initialize: ({openSections}) ->
+    (@openSection(section) for section in openSections) if openSections?
 
-  initialize: ->
     @projectButton.on 'click', =>
       atom.commands.dispatch(atom.views.getView(atom.workspace), 'application:open')
     @packagesButton.on 'click', =>
@@ -129,10 +130,10 @@ class GuideView extends ScrollView
 
   serialize: ->
     deserializer: @constructor.name
-    # collapsedSections: @getCollapsedSections()
-    uri: @getUri()
+    openSections: @getOpenSections()
+    uri: @getURI()
 
-  getUri: -> @uri
+  getURI: -> @uri
 
   getTitle: -> "Welcome Guide"
 
@@ -141,3 +142,11 @@ class GuideView extends ScrollView
 
   isEqual: (other) ->
     other instanceof GuideView
+
+  getOpenSections: ->
+    openSections = @find('details[open]')
+    for section in openSections
+      section.getAttribute('data-section')
+
+  openSection: (section) ->
+    @find("details[data-section=\"#{section}\"]").attr('open', 'open')
