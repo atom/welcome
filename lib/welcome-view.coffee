@@ -46,7 +46,6 @@ class WelcomeView extends ScrollView
 
   serialize: ->
     deserializer: @constructor.name
-    collapsedSections: @getCollapsedSections()
     uri: @getUri()
 
   getUri: -> @uri
