@@ -129,7 +129,7 @@ class GuideView extends ScrollView
 
   serialize: ->
     deserializer: @constructor.name
-    collapsedSections: @getCollapsedSections()
+    # collapsedSections: @getCollapsedSections()
     uri: @getUri()
 
   getUri: -> @uri
