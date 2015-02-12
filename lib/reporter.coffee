@@ -1,4 +1,5 @@
 module.exports =
+  reporter: null
   queue: []
 
   setReporter: (@reporter) ->

@@ -35,11 +35,13 @@ module.exports =
     @subscriptions.add atom.workspace.addOpener (filePath) ->
       createGuideView(uri: GuideUri) if filePath is GuideUri
     @subscriptions.add atom.commands.add 'atom-workspace', 'welcome:show', => @show()
+
     if atom.config.get('welcome.showOnStartup')
-      @show()
-      Reporter ?= require './reporter'
-      Reporter.sendEvent('show-on-initial-load')
-      atom.config.set('welcome.showOnStartup', false)
+      process.nextTick =>
+        @show()
+        Reporter ?= require './reporter'
+        Reporter.sendEvent('show-on-initial-load')
+        atom.config.set('welcome.showOnStartup', false)
 
   show: ->
     atom.workspace.open(WelcomeUri)
