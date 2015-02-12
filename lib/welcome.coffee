@@ -19,7 +19,6 @@ atom.deserializers.add
   deserialize: (state) -> createGuideView(state)
 
 module.exports =
-
   config:
     showOnStartup:
       type: 'boolean'
@@ -35,9 +34,6 @@ module.exports =
     if atom.config.get('welcome.showOnStartup')
       @show()
       atom.config.set('welcome.showOnStartup', false)
-
-    # Uncomment durring dev
-    # @show()
 
   show: ->
     atom.workspace.open(WelcomeUri)
