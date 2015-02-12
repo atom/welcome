@@ -114,16 +114,15 @@ class GuideView extends ScrollView
     @projectButton.on 'click', =>
       atom.commands.dispatch(atom.views.getView(atom.workspace), 'application:open')
     @packagesButton.on 'click', =>
-      atom.commands.dispatch(atom.views.getView(atom.workspace), 'settings-view:install-packages-and-themes')
+      atom.workspace.open('atom://config/install', split: 'left')
     @themesButton.on 'click', =>
-      atom.commands.dispatch(atom.views.getView(atom.workspace), 'settings-view:change-themes')
+      atom.workspace.open('atom://config/themes', split: 'left')
     @stylingButton.on 'click', =>
-      atom.commands.dispatch(atom.views.getView(atom.workspace), 'application:open-your-stylesheet')
+      atom.workspace.open('atom://.atom/stylesheet', split: 'left')
     @initScriptButton.on 'click', =>
-      atom.commands.dispatch(atom.views.getView(atom.workspace), 'application:open-your-init-script')
+      atom.workspace.open('atom://.atom/init-script', split: 'left')
     @snippetsButton.on 'click', =>
-      atom.commands.dispatch(atom.views.getView(atom.workspace), 'application:open-your-snippets')
-
+      atom.workspace.open('atom://.atom/snippets', split: 'left')
 
   @deserialize: (options={}) ->
     new GuideView(options)
