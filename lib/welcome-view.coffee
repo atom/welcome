@@ -31,12 +31,17 @@ class WelcomeView extends ScrollView
         @section class:'welcome-panel', =>
           @p 'For help, please visit:'
           @ul =>
-            @li => @raw 'The <a href="https://www.atom.io/docs" data-event="atom-docs">Atom docs</a> contain Guides and the API reference.'
-            @li => @raw 'Discuss Atom at <a href="http://discuss.atom.io" data-event="discuss">discuss.atom.io</a>.'
+            @li => @raw 'The <a href="https://www.atom.io/docs" data-event="atom-docs">Atom docs</a> for Guides and the API reference.'
+            @li => @raw 'The Atom forum at <a href="http://discuss.atom.io" data-event="discuss">discuss.atom.io</a>.'
             @li => @raw 'The <a href="https://github.com/atom" data-event="atom-org">Atom Org</a>. This is where all GitHub created Atom packages can be found.'
           @p class: 'welcome-note welcome-metrics', =>
-             @raw '<strong>Note:</strong> To help us improve Atom, we anonymously track usage metrics, such as launch time, screen size, used version etc. See the
-             <a href="https://github.com/atom/metrics" data-event="atom-metrics">atom/metrics</a> package for details and for instructions on how to disable it.'
+             @raw '''
+                <strong>Note:</strong> To help us improve Atom, we anonymously
+                track usage metrics, such as launch time, screen size, and current
+                version. See the
+                <a href="https://github.com/atom/metrics" data-event="atom-metrics">atom/metrics</a>
+                package for details and instructions to disable it.
+              '''
 
         @footer class:'welcome-footer', =>
           @raw '<a href="https://atom.io/" data-event="footer-atom-io">atom.io</a> <span class="text-subtle">×</span> <a class="icon icon-octoface" href="https://github.com/" data-event="footer-octocat"></a>'
