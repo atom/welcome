@@ -30,14 +30,14 @@ module.exports =
 
   activate: ->
     @subscriptions = new CompositeDisposable
-    @subscriptions.add atom.workspace.addOpener (filePath) ->
-      createWelcomeView(uri: WelcomeUri) if filePath is WelcomeUri
-    @subscriptions.add atom.workspace.addOpener (filePath) ->
-      createGuideView(uri: GuideUri) if filePath is GuideUri
-    @subscriptions.add atom.commands.add 'atom-workspace', 'welcome:show', => @show()
 
-    if atom.config.get('welcome.showOnStartup')
-      process.nextTick =>
+    process.nextTick =>
+      @subscriptions.add atom.workspace.addOpener (filePath) ->
+        createWelcomeView(uri: WelcomeUri) if filePath is WelcomeUri
+      @subscriptions.add atom.workspace.addOpener (filePath) ->
+        createGuideView(uri: GuideUri) if filePath is GuideUri
+      @subscriptions.add atom.commands.add 'atom-workspace', 'welcome:show', => @show()
+      if atom.config.get('welcome.showOnStartup')
         @show()
         Reporter ?= require './reporter'
         Reporter.sendEvent('show-on-initial-load')

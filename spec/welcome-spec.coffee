@@ -29,6 +29,8 @@ describe "Welcome", ->
       waitsForPromise ->
         atom.packages.activatePackage("welcome")
 
+      waits 1 # let the opener next tick run
+
     it "doesn't show the welcome buffer", ->
       expect(atom.workspace.open).not.toHaveBeenCalled()
 
