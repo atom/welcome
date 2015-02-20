@@ -33,7 +33,7 @@ class WelcomeView extends ScrollView
           @ul =>
             @li => @raw 'The <a href="https://www.atom.io/docs" data-event="atom-docs">Atom docs</a> for Guides and the API reference.'
             @li => @raw 'The Atom forum at <a href="http://discuss.atom.io" data-event="discuss">discuss.atom.io</a>.'
-            @li => @raw 'The <a href="https://github.com/atom" data-event="atom-org">Atom Org</a>. This is where all GitHub created Atom packages can be found.'
+            @li => @raw 'The <a href="https://github.com/atom" data-event="atom-org">Atom Org</a>. This is where all GitHub-created Atom packages can be found.'
           @p class: 'welcome-note welcome-metrics', =>
              @raw '''
                 <strong>Note:</strong> To help us improve Atom, we anonymously
