@@ -75,10 +75,10 @@ class GuideView extends ScrollView
                 @img class: 'welcome-img', src: 'atom://welcome/assets/code.svg'
               @p '''You can customize almost anything by adding your own CSS/LESS.'''
               @p =>
-                @button outlet: 'stylingButton', class: 'btn btn-primary', 'Open your Styleshet'
+                @button outlet: 'stylingButton', class: 'btn btn-primary', 'Open your Stylesheet'
               @p '''Now uncomment some of the examples or try your own.'''
               @p class: 'welcome-note', =>
-                 @raw '<strong>Next time:</strong> You can open your styleshet from Menu > Atom.'
+                 @raw '<strong>Next time:</strong> You can open your stylesheet from Menu > Atom.'
 
           # Init Script
           @details class: 'welcome-card', 'data-section': 'init-script', =>
