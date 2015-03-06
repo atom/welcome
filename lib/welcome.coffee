@@ -41,6 +41,7 @@ module.exports =
         @show()
         Reporter ?= require './reporter'
         Reporter.sendEvent('show-on-initial-load')
+        atom.config.set('welcome.showOnStartup', false)
 
   show: ->
     atom.workspace.open(WelcomeUri)
