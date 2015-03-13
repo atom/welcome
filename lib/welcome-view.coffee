@@ -35,7 +35,7 @@ class WelcomeView extends ScrollView
             @li => @raw 'The Atom forum at <a href="http://discuss.atom.io" data-event="discuss">discuss.atom.io</a>.'
             @li => @raw 'The <a href="https://github.com/atom" data-event="atom-org">Atom org</a>. This is where all GitHub-created Atom packages can be found.'
 
-          @input type: 'checkbox', id: 'show-welcome-on-startup', checked: false
+          @input type: 'checkbox', id: 'show-welcome-on-startup', checked: 'checked'
           @label for: 'show-welcome-on-startup', 'Show this welcome screen at startup'
 
           @p class: 'welcome-note welcome-metrics', =>
