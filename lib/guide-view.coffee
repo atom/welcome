@@ -1,3 +1,5 @@
+_ = require 'underscore-plus'
+
 {Disposable} = require 'atom'
 {$, ScrollView} = require 'atom-space-pen-views'
 Reporter = require './reporter'
@@ -130,17 +132,21 @@ class GuideView extends ScrollView
                 @img class: 'welcome-img', src: 'atom://welcome/assets/shortcut.svg'
               @p =>
                 @raw 'If you only remember one keyboard shortcut make it '
-                @kbd class: 'welcome-key', 'cmd-shift-P'
+                @kbd class: 'welcome-key', 'command-palette:toggle'
                 @raw '''. This keystroke toggles the command palette, which lists every Atom command. It's a good way to learn more shortcuts. Yes, you can try it now!'''
               @p =>
                 @raw 'If you want to use these guides again use the command palette '
-                @kbd class: 'welcome-key', 'cmd-shift-P'
+                @kbd class: 'welcome-key', 'command-palette:toggle'
                 @raw ' and search for '
                 @span class: 'text-highlight', 'Welcome'
                 @raw '.'
 
   initialize: ({openSections}) ->
     (@openSection(section) for section in openSections) if openSections?
+
+    shortcuts = @find("kbd")
+    for shortcut in shortcuts
+      shortcut.textContent = @getKeystrokesForCurrentPlatform(shortcut.textContent)
 
     @projectButton.on 'click', =>
       Reporter.sendEvent('clicked-project-cta')
@@ -193,3 +199,18 @@ class GuideView extends ScrollView
 
   openSection: (section) ->
     @find("details[data-section=\"#{section}\"]").attr('open', 'open')
+
+  getKeystrokesForCurrentPlatform: (command) ->
+    bindings = atom.keymaps.findKeyBindings(command: command.trim())
+    binding = @getKeyBindingForCurrentPlatform(bindings)
+
+    if binding?.keystrokes
+      keystrokes = _.humanizeKeystroke(binding.keystrokes).replace(/\s+/g, '&nbsp;')
+      return keystrokes
+    else
+      return command
+
+  getKeyBindingForCurrentPlatform: (bindings) ->
+    return unless bindings?.length
+    return binding for binding in bindings when binding.selector.indexOf(process.platform) isnt -1
+    return bindings[0]
