@@ -11,7 +11,7 @@ describe "Welcome", ->
       atom.packages.activatePackage("welcome")
 
     waitsFor ->
-      atom.workspace.open.calls.length == 2
+      atom.workspace.open.calls.length is 2
 
   describe "when activated for the first time", ->
     it "shows the welcome panes", ->

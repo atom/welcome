@@ -17,5 +17,8 @@
   },
   "dependencies": {
     "atom-space-pen-views": "^2.0.0"
+  },
+  "devDependencies": {
+    "coffeelint": "^1.9.7"
   }
 }

@@ -7,7 +7,7 @@ class GuideView extends ScrollView
   @content: ->
     @div class: 'welcome is-guide', =>
       @div class: 'welcome-container', =>
-        @section class:'welcome-panel', =>
+        @section class: 'welcome-panel', =>
           @h1 class: 'welcome-title', 'Get to know Atom!'
 
           # Project
@@ -25,7 +25,7 @@ class GuideView extends ScrollView
               @p =>
                 @button outlet: 'projectButton', class: 'btn btn-primary', 'Open a Project'
               @p class: 'welcome-note', =>
-                 @raw '''
+                @raw '''
                     <strong>Next time:</strong> You can also open projects from
                     the menu, keyboard shortcut or by dragging a folder onto the
                     Atom dock icon.
@@ -46,7 +46,7 @@ class GuideView extends ScrollView
               @p =>
                 @button outlet: 'packagesButton', class: 'btn btn-primary', 'Open Installer'
               @p class: 'welcome-note', =>
-                 @raw '<strong>Next time:</strong> You can install new packages from the settings.'
+                @raw '<strong>Next time:</strong> You can install new packages from the settings.'
 
           # Themes
           @details class: 'welcome-card', 'data-section': 'themes', =>
@@ -64,7 +64,7 @@ class GuideView extends ScrollView
                   to "themes".
                 '''
               @p class: 'welcome-note', =>
-                 @raw '<strong>Next time:</strong> You can switch themes from the settings.'
+                @raw '<strong>Next time:</strong> You can switch themes from the settings.'
 
           # Styling
           @details class: 'welcome-card', 'data-section': 'styling', =>
@@ -78,7 +78,7 @@ class GuideView extends ScrollView
                 @button outlet: 'stylingButton', class: 'btn btn-primary', 'Open your Stylesheet'
               @p '''Now uncomment some of the examples or try your own.'''
               @p class: 'welcome-note', =>
-                 @raw '<strong>Next time:</strong> You can open your stylesheet from Menu > Atom.'
+                @raw '<strong>Next time:</strong> You can open your stylesheet from Menu > Atom.'
 
           # Init Script
           @details class: 'welcome-card', 'data-section': 'init-script', =>
@@ -96,7 +96,7 @@ class GuideView extends ScrollView
                 @button outlet: 'initScriptButton', class: 'btn btn-primary', 'Open your Init Script'
               @p '''Uncomment some of the examples or try out your own.'''
               @p class: 'welcome-note', =>
-                 @raw '<strong>Next time:</strong> You can open your init script from Menu > Atom.'
+                @raw '<strong>Next time:</strong> You can open your init script from Menu > Atom.'
 
           # Snippets
           @details class: 'welcome-card', 'data-section': 'snippets', =>
@@ -119,7 +119,7 @@ class GuideView extends ScrollView
                     to create a snippet!
                   '''
               @p class: 'welcome-note', =>
-                 @raw '<strong>Next time:</strong> You can open your snippets in Menu > Atom.'
+                @raw '<strong>Next time:</strong> You can open your snippets in Menu > Atom.'
 
           # Shortcuts
           @details class: 'welcome-card', 'data-section': 'shortcuts', =>
@@ -142,22 +142,22 @@ class GuideView extends ScrollView
   initialize: ({openSections}) ->
     (@openSection(section) for section in openSections) if openSections?
 
-    @projectButton.on 'click', =>
+    @projectButton.on 'click', ->
       Reporter.sendEvent('clicked-project-cta')
       atom.commands.dispatch(atom.views.getView(atom.workspace), 'application:open')
-    @packagesButton.on 'click', =>
+    @packagesButton.on 'click', ->
       Reporter.sendEvent('clicked-packages-cta')
       atom.workspace.open('atom://config/install', split: 'left')
-    @themesButton.on 'click', =>
+    @themesButton.on 'click', ->
       Reporter.sendEvent('clicked-themes-cta')
       atom.workspace.open('atom://config/themes', split: 'left')
-    @stylingButton.on 'click', =>
+    @stylingButton.on 'click', ->
       Reporter.sendEvent('clicked-styling-cta')
       atom.workspace.open('atom://.atom/stylesheet', split: 'left')
-    @initScriptButton.on 'click', =>
+    @initScriptButton.on 'click', ->
       Reporter.sendEvent('clicked-init-script-cta')
       atom.workspace.open('atom://.atom/init-script', split: 'left')
-    @snippetsButton.on 'click', =>
+    @snippetsButton.on 'click', ->
       Reporter.sendEvent('clicked-snippets-cta')
       atom.workspace.open('atom://.atom/snippets', split: 'left')
 

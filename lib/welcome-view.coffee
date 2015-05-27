@@ -28,14 +28,14 @@ class WelcomeView extends ScrollView
           </svg>'
           @h1 class: 'welcome-title', 'A hackable text editor for the 21st Century'
 
-        @section class:'welcome-panel', =>
+        @section class: 'welcome-panel', =>
           @p 'For help, please visit:'
           @ul =>
             @li => @raw 'The <a href="https://www.atom.io/docs" data-event="atom-docs">Atom docs</a> for Guides and the API reference.'
             @li => @raw 'The Atom forum at <a href="http://discuss.atom.io" data-event="discuss">discuss.atom.io</a>.'
             @li => @raw 'The <a href="https://github.com/atom" data-event="atom-org">Atom org</a>. This is where all GitHub-created Atom packages can be found.'
           @p class: 'welcome-note welcome-metrics', =>
-             @raw '''
+            @raw '''
                 <strong>Note:</strong> To help us improve Atom, we anonymously
                 track usage metrics, such as launch time, screen size, and current
                 version. See the
@@ -43,7 +43,7 @@ class WelcomeView extends ScrollView
                 package for details and instructions to disable it.
               '''
 
-        @footer class:'welcome-footer', =>
+        @footer class: 'welcome-footer', =>
           @raw '<a href="https://atom.io/" data-event="footer-atom-io">atom.io</a> <span class="text-subtle">×</span> <a class="icon icon-octoface" href="https://github.com/" data-event="footer-octocat"></a>'
 
 
