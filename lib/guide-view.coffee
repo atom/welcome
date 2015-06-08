@@ -2,6 +2,11 @@
 {$, ScrollView} = require 'atom-space-pen-views'
 Reporter = require './reporter'
 
+if process.platform is 'darwin'
+  commandPaletteKeybinding = 'cmd-shift-p'
+else
+  commandPaletteKeybinding = 'ctrl-shift-p'
+
 module.exports =
 class GuideView extends ScrollView
   @content: ->
@@ -130,11 +135,11 @@ class GuideView extends ScrollView
                 @img class: 'welcome-img', src: 'atom://welcome/assets/shortcut.svg'
               @p =>
                 @raw 'If you only remember one keyboard shortcut make it '
-                @kbd class: 'welcome-key', 'cmd-shift-P'
+                @kbd class: 'welcome-key', commandPaletteKeybinding
                 @raw '''. This keystroke toggles the command palette, which lists every Atom command. It's a good way to learn more shortcuts. Yes, you can try it now!'''
               @p =>
                 @raw 'If you want to use these guides again use the command palette '
-                @kbd class: 'welcome-key', 'cmd-shift-P'
+                @kbd class: 'welcome-key', commandPaletteKeybinding
                 @raw ' and search for '
                 @span class: 'text-highlight', 'Welcome'
                 @raw '.'
