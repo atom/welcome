@@ -110,3 +110,18 @@ describe "Welcome", ->
             expect(Reporter.sendEvent).not.toHaveBeenCalledWith(eventName)
             primaryButton.click()
             expect(Reporter.sendEvent).toHaveBeenCalledWith(eventName)
+
+  describe "when the reporter changes", ->
+    it "sends all queued events", ->
+      reporter1 = sendEvent: jasmine.createSpy('sendEvent')
+      reporter2 = sendEvent: jasmine.createSpy('sendEvent')
+
+      Reporter.sendEvent('foo', 'bar', 'baz')
+      Reporter.sendEvent('foo2', 'bar2', 'baz2')
+      Reporter.setReporter(reporter1)
+
+      expect(reporter1.sendEvent).toHaveBeenCalledWith 'welcome-v1', 'foo', 'bar', 'baz'
+      expect(reporter1.sendEvent).toHaveBeenCalledWith 'welcome-v1', 'foo2', 'bar2', 'baz2'
+
+      Reporter.setReporter(reporter2)
+      expect(reporter2.sendEvent.callCount).toBe 0

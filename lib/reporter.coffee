@@ -5,7 +5,7 @@ module.exports =
   setReporter: (@reporter) ->
     for event in @queue
       @reporter.sendEvent.apply(@reporter, event)
-    @queue = null
+    @queue = []
 
   sendEvent: (action, label, value) ->
     if @reporter
