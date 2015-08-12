@@ -39,7 +39,7 @@ class WelcomeView extends ScrollView
                 <strong>Note:</strong> To help us improve Atom, we anonymously
                 track usage metrics, such as launch time, screen size, and current
                 version. See the
-                <a href="https://github.com/atom/metrics" data-event="atom-metrics">atom/metrics</a>
+                <a class="js-metrics" data-event="atom-metrics">atom/metrics</a>
                 package for details and instructions to disable it.
               '''
 
@@ -54,6 +54,9 @@ class WelcomeView extends ScrollView
     @on 'click', 'a', ->
       eventName = $(this).attr('data-event')
       Reporter.sendEvent("clicked-welcome-#{eventName}-link") if eventName
+
+    @on 'click', 'a.js-metrics', ->
+      atom.workspace.open('atom://config/packages/metrics')
 
   serialize: ->
     deserializer: @constructor.name
