@@ -14,14 +14,6 @@ createGuideView = (state) ->
   GuideView ?= require './guide-view'
   new GuideView(state)
 
-atom.deserializers.add
-  name: 'WelcomeView'
-  deserialize: (state) -> createWelcomeView(state)
-
-atom.deserializers.add
-  name: 'GuideView'
-  deserialize: (state) -> createGuideView(state)
-
 module.exports =
   config:
     showOnStartup:
@@ -32,6 +24,14 @@ module.exports =
     @subscriptions = new CompositeDisposable
 
     process.nextTick =>
+      @subscriptions.add atom.deserializers.add
+        name: 'WelcomeView'
+        deserialize: (state) -> createWelcomeView(state)
+
+      @subscriptions.add atom.deserializers.add
+        name: 'GuideView'
+        deserialize: (state) -> createGuideView(state)
+
       @subscriptions.add atom.workspace.addOpener (filePath) ->
         createWelcomeView(uri: WelcomeUri) if filePath is WelcomeUri
       @subscriptions.add atom.workspace.addOpener (filePath) ->
