@@ -15,12 +15,6 @@ createGuideView = (state) ->
   new GuideView(state)
 
 module.exports =
-  config:
-    showOnStartup:
-      type: 'boolean'
-      default: true
-      description: 'Show the Welcome package next time a new window is created. This config setting is automatically set to `false` after a new window is created and the Welcome package is shown.'
-
   activate: ->
     @subscriptions = new CompositeDisposable
 
