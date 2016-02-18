@@ -4,8 +4,14 @@ Reporter = require './reporter'
 
 if process.platform is 'darwin'
   commandPaletteKeybinding = 'cmd-shift-p'
+  menuName = 'Atom'
+else if process.platform is 'linux'
+  commandPaletteKeybinding = 'ctrl-shift-p'
+  menuName = 'Edit'
 else
   commandPaletteKeybinding = 'ctrl-shift-p'
+  menuName = 'File'
+
 
 module.exports =
 class GuideView extends ScrollView
@@ -83,7 +89,7 @@ class GuideView extends ScrollView
                 @button outlet: 'stylingButton', class: 'btn btn-primary', 'Open your Stylesheet'
               @p '''Now uncomment some of the examples or try your own.'''
               @p class: 'welcome-note', =>
-                @raw '<strong>Next time:</strong> You can open your stylesheet from Menu > Atom.'
+                @raw '<strong>Next time:</strong> You can open your stylesheet from Menu > ' + menuName + '.'
 
           # Init Script
           @details class: 'welcome-card', 'data-section': 'init-script', =>
@@ -101,7 +107,7 @@ class GuideView extends ScrollView
                 @button outlet: 'initScriptButton', class: 'btn btn-primary', 'Open your Init Script'
               @p '''Uncomment some of the examples or try out your own.'''
               @p class: 'welcome-note', =>
-                @raw '<strong>Next time:</strong> You can open your init script from Menu > Atom.'
+                @raw '<strong>Next time:</strong> You can open your init script from Menu > ' + menuName + '.'
 
           # Snippets
           @details class: 'welcome-card', 'data-section': 'snippets', =>
@@ -124,7 +130,7 @@ class GuideView extends ScrollView
                     to create a snippet!
                   '''
               @p class: 'welcome-note', =>
-                @raw '<strong>Next time:</strong> You can open your snippets in Menu > Atom.'
+                @raw '<strong>Next time:</strong> You can open your snippets in Menu > ' + menuName + '.'
 
           # Shortcuts
           @details class: 'welcome-card', 'data-section': 'shortcuts', =>
