@@ -1,3 +1,4 @@
+@import "octicon-mixins";
 @import "ui-variables";
 
 .welcome {
@@ -106,6 +107,29 @@
     border: 1px solid @base-border-color;
   }
 
+  &-consent {
+    margin-top: 3em;
+
+    &-choices {
+      display: flex;
+      flex-direction: row;
+      margin: 2em -1em;
+
+      button {
+        width: 100%
+      }
+
+      div {
+        margin: 0 1em;
+        width: 50%;
+      }
+
+      .welcome-note {
+        margin-top: 1em;
+      }
+    }
+  }
+
   &-key {
     display: inline-block;
     padding: .3em .4em;
@@ -117,17 +141,33 @@
     background: hsla(0,0%,0%,.1);
   }
 
+  &-love {
+    color: @text-color-subtle;
+    a { color: @text-color-subtle; }
+
+    .icon::before {
+      // Make these octicons look good inlined with text
+      position: relative;
+      top: 1px;
+      width: auto;
+      margin-right: 0;
+      font-size: 1.5em;
+    }
+
+    .icon-logo-github::before {
+      // This Octicon has a lot of extra whitespace at the bottom, so it needs
+      // to be moved down more to compensate.
+      // See https://github.com/github/octicons/issues/59
+      top: 3px;
+    }
+  }
+
   &-note {
     font-size: .86em;
     color: @text-color-subtle;
   }
 
-  &-metrics {
-    margin-top: 2em;
-  }
-
   &-footer {
     text-align: center;
   }
-
 }

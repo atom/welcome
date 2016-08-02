@@ -2,7 +2,7 @@
   "name": "welcome",
   "main": "./lib/welcome",
   "version": "0.34.0",
-  "description": "Welcome editor when Atom is opened for the first time",
+  "description": "Welcome when Atom is opened for the first time",
   "repository": "https://github.com/atom/welcome",
   "license": "MIT",
   "engines": {
@@ -19,11 +19,12 @@
     "showOnStartup": {
       "type": "boolean",
       "default": true,
-      "description": "Show the Welcome package next time a new window is created. This config setting is automatically set to `false` after a new window is created and the Welcome package is shown."
+      "description": "Show the Welcome package next time a new window is created. This setting is automatically set to `false` after a new window is created and the Welcome package is shown."
     }
   },
   "dependencies": {
-    "atom-space-pen-views": "^2.0.0"
+    "atom-space-pen-views": "^2.0.0",
+    "etch": "^0.6.0"
   },
   "devDependencies": {
     "coffeelint": "^1.9.7"
