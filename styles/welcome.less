@@ -113,15 +113,16 @@
     &-choices {
       display: flex;
       flex-direction: row;
-      margin: 2em -1em;
+      flex-wrap: wrap;
+      margin: 1em -1em;
 
       button {
         width: 100%
       }
 
       div {
-        margin: 0 1em;
-        width: 50%;
+        margin: .5em 1em;
+        flex: 1;
       }
 
       .welcome-note {
