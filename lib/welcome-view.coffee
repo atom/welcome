@@ -36,9 +36,11 @@ class WelcomeView extends ScrollView
             @li => @raw 'The Atom forum at <a href="http://discuss.atom.io" data-event="discuss">discuss.atom.io</a>.'
             @li => @raw 'The <a href="https://github.com/atom" data-event="atom-org">Atom org</a>. This is where all GitHub-created Atom packages can be found.'
 
+          @input type: 'checkbox', id: 'show-welcome-on-startup', checked: 'checked'
+          @label for: 'show-welcome-on-startup', 'Show this welcome screen at startup'
+
         @footer class: 'welcome-footer', =>
           @raw '<a href="https://atom.io/" data-event="footer-atom-io">atom.io</a> <span class="text-subtle">×</span> <a class="icon icon-octoface" href="https://github.com/" data-event="footer-octocat"></a>'
-
 
   @deserialize: (options={}) ->
     new WelcomeView(options)
@@ -47,6 +49,8 @@ class WelcomeView extends ScrollView
     @on 'click', 'a', ->
       eventName = $(this).attr('data-event')
       Reporter.sendEvent("clicked-welcome-#{eventName}-link") if eventName
+    @on 'change', '#show-welcome-on-startup', ->
+      atom.config.set 'welcome.showOnStartup', @checked
 
   serialize: ->
     deserializer: @constructor.name
