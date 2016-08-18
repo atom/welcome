@@ -27,7 +27,7 @@ class WelcomeView extends ScrollView
                     </g>
                 </g>
             </svg>'
-            @h1 class: 'welcome-title', 'A hackable text editor for the 21st Century'
+            @h1 class: 'welcome-title', => @raw 'A hackable text editor for the 21<sup>st</sup> Century'
 
         @section class: 'welcome-panel', =>
           @p 'For help, please visit:'
@@ -36,17 +36,24 @@ class WelcomeView extends ScrollView
             @li => @raw 'The Atom forum at <a href="http://discuss.atom.io" data-event="discuss">discuss.atom.io</a>.'
             @li => @raw 'The <a href="https://github.com/atom" data-event="atom-org">Atom org</a>. This is where all GitHub-created Atom packages can be found.'
 
+        @section class: 'welcome-panel', =>
+          @input type: 'checkbox', id: 'show-welcome-on-startup'
+          @label for: 'show-welcome-on-startup', 'Show Welcome Guide when opening Atom'
+
         @footer class: 'welcome-footer', =>
           @raw '<a href="https://atom.io/" data-event="footer-atom-io">atom.io</a> <span class="text-subtle">×</span> <a class="icon icon-octoface" href="https://github.com/" data-event="footer-octocat"></a>'
-
 
   @deserialize: (options={}) ->
     new WelcomeView(options)
 
   initialize: ->
+    if atom.config.get('welcome.showOnStartup')
+      $(this).find('#show-welcome-on-startup').attr('checked', 'checked')
     @on 'click', 'a', ->
       eventName = $(this).attr('data-event')
       Reporter.sendEvent("clicked-welcome-#{eventName}-link") if eventName
+    @on 'change', '#show-welcome-on-startup', ->
+      atom.config.set 'welcome.showOnStartup', @checked
 
   serialize: ->
     deserializer: @constructor.name
