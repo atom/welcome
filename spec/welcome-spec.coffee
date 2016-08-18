@@ -20,20 +20,6 @@ describe "Welcome", ->
       expect(panes[0].getItems()[0].getTitle()).toBe 'Welcome'
       expect(panes[1].getItems()[0].getTitle()).toBe 'Welcome Guide'
 
-  describe "when activated again", ->
-    beforeEach ->
-      atom.workspace.getPanes().map (pane) -> pane.destroy()
-      atom.packages.deactivatePackage("welcome")
-      atom.workspace.open.reset()
-
-      waitsForPromise ->
-        atom.packages.activatePackage("welcome")
-
-      waits 1 # let the opener next tick run
-
-    it "doesn't show the welcome buffer", ->
-      expect(atom.workspace.open).not.toHaveBeenCalled()
-
   describe "the welcome:show command", ->
     workspaceElement = null
 
