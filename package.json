@@ -2,7 +2,7 @@
   "name": "welcome",
   "main": "./lib/welcome",
   "version": "0.34.0",
-  "description": "Welcome when Atom is opened for the first time",
+  "description": "Welcome users to Atom with useful information",
   "repository": "https://github.com/atom/welcome",
   "license": "MIT",
   "engines": {
@@ -19,7 +19,7 @@
     "showOnStartup": {
       "type": "boolean",
       "default": true,
-      "description": "Show the Welcome package next time a new window is created. This setting is automatically set to `false` after a new window is created and the Welcome package is shown."
+      "description": "Show welcome panes with useful information when opening a new Atom window."
     }
   },
   "dependencies": {

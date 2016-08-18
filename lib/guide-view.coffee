@@ -135,7 +135,7 @@ class GuideView extends ScrollView
           # Shortcuts
           @details class: 'welcome-card', 'data-section': 'shortcuts', =>
             @summary class: 'welcome-summary icon icon-keyboard', =>
-              @raw 'Learn some <span class="welcome-highlight">Shortcuts</span>'
+              @raw 'Learn <span class="welcome-highlight">Keyboard Shortcuts</span>'
             @div class: 'welcome-detail', =>
               @p =>
                 @img class: 'welcome-img', src: 'atom://welcome/assets/shortcut.svg'
