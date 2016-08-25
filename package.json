@@ -1,7 +1,7 @@
 {
   "name": "welcome",
   "main": "./lib/welcome",
-  "version": "0.34.0",
+  "version": "0.35.0",
   "description": "Welcome users to Atom with useful information",
   "repository": "https://github.com/atom/welcome",
   "license": "MIT",
