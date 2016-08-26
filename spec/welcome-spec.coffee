@@ -6,6 +6,7 @@ describe "Welcome", ->
 
   beforeEach ->
     spyOn(atom.workspace, 'open').andCallThrough()
+    atom.config.set('core.telemetryConsent', 'no')
 
     waitsForPromise ->
       atom.packages.activatePackage("welcome")
