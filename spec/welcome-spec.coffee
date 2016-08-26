@@ -17,11 +17,12 @@ describe "Welcome", ->
       waitsFor ->
         atom.workspace.open.calls.length is 3
 
-    it "opens the telemetry consent pane and the welcome pane", ->
+    it "opens the telemetry consent pane and the welcome panes", ->
       panes = atom.workspace.getPanes()
       expect(panes).toHaveLength 2
       expect(panes[0].getItems()[0].getTitle()).toBe 'Telemetry Consent'
       expect(panes[0].getItems()[1].getTitle()).toBe 'Welcome'
+      expect(panes[1].getItems()[0].getTitle()).toBe 'Welcome Guide'
 
   describe "when `core.telemetryConsent` is not `undecided`", ->
     beforeEach ->
