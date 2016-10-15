@@ -37,7 +37,7 @@ class WelcomeView extends ScrollView
             @li => @raw 'The <a href="https://github.com/atom" data-event="atom-org">Atom org</a>. This is where all GitHub-created Atom packages can be found.'
 
         @section class: 'welcome-panel', =>
-          @input type: 'checkbox', id: 'show-welcome-on-startup'
+          @input class: 'input-checkbox', type: 'checkbox', id: 'show-welcome-on-startup'
           @label for: 'show-welcome-on-startup', 'Show Welcome Guide when opening Atom'
 
         @footer class: 'welcome-footer', =>
