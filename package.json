@@ -1,7 +1,7 @@
 {
   "name": "welcome",
   "main": "./lib/welcome",
-  "version": "0.35.1",
+  "version": "0.35.2",
   "description": "Welcome users to Atom with useful information",
   "repository": "https://github.com/atom/welcome",
   "license": "MIT",
@@ -23,7 +23,7 @@
     }
   },
   "dependencies": {
-    "atom-space-pen-views": "^2.2.0",
+    "atom-space-pen-views": "^2.0.0",
     "etch": "^0.8.0"
   },
   "devDependencies": {
