@@ -1,4 +1,5 @@
 /** @babel */
+/* global beforeEach, afterEach, describe, it */
 
 import WelcomePackage from '../lib/welcome-package'
 import assert from 'assert'
@@ -23,7 +24,7 @@ describe('Welcome', () => {
     })
 
     it('opens the telemetry consent pane and the welcome panes', () => {
-      let panes = atom.workspace.getPanes()
+      const panes = atom.workspace.getPanes()
       assert.equal(panes.length, 2)
       assert.equal(panes[0].getItems()[0].getTitle(), 'Telemetry Consent')
       assert.equal(panes[0].getItems()[1].getTitle(), 'Welcome')
@@ -39,7 +40,7 @@ describe('Welcome', () => {
 
     describe('when activated for the first time', () =>
       it('shows the welcome panes', () => {
-        let panes = atom.workspace.getPanes()
+        const panes = atom.workspace.getPanes()
         assert.equal(panes.length, 2)
         assert.equal(panes[0].getItems()[0].getTitle(), 'Welcome')
         assert.equal(panes[1].getItems()[0].getTitle(), 'Welcome Guide')
@@ -84,14 +85,13 @@ describe('Welcome', () => {
     })
 
     describe('reporting events', () => {
-      let panes, guideView, welcomeView, reportedEvents
+      let panes, guideView, reportedEvents
       beforeEach(() => {
         panes = atom.workspace.getPanes()
-        welcomeView = panes[0].getItems()[0]
         guideView = panes[1].getItems()[0]
         reportedEvents = []
 
-        welcomePackage.reporterProxy.sendEvent = (...event) => {reportedEvents.push(event)}
+        welcomePackage.reporterProxy.sendEvent = (...event) => { reportedEvents.push(event) }
       })
 
       describe('GuideView events', () => {
@@ -105,7 +105,7 @@ describe('Welcome', () => {
         })
 
         it('captures button events', () => {
-          for (let detailElement of Array.from(guideView.element.querySelector('details'))) {
+          for (const detailElement of Array.from(guideView.element.querySelector('details'))) {
             reportedEvents.length = 0
 
             const sectionName = detailElement.dataset.section
@@ -136,9 +136,9 @@ describe('Welcome', () => {
           ['welcome-v1', 'foo2', 'bar2', 'baz2']
         ])
 
-        // Reporter.setReporter(reporter2)
+        welcomePackage.consumeReporter(reporter2)
 
-        // assert.deepEqual(reporter2.reportedEvents, [])
+        assert.deepEqual(reporter2.reportedEvents, [])
       })
     )
   })

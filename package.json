@@ -9,6 +9,9 @@
   "engines": {
     "atom": ">0.50.0"
   },
+  "scripts": {
+    "test": "standard lib/**/*.js test/**/*.js && atom --test test/*.test.js"
+  },
   "consumedServices": {
     "metrics-reporter": {
       "versions": {
@@ -34,5 +37,8 @@
   "devDependencies": {
     "atom-mocha-test-runner": "^1.0.0",
     "standard": "^8.6.0"
+  },
+  "standard": {
+    "globals": ["atom"]
   }
 }
