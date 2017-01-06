@@ -1,4 +1,3 @@
-{$} = require 'atom-space-pen-views'
 Reporter = require '../lib/reporter'
 
 describe "Welcome", ->

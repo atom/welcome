@@ -28,7 +28,6 @@
     "ConsentView": "createConsentView"
   },
   "dependencies": {
-    "atom-space-pen-views": "^2.0.0",
     "etch": "^0.8.0"
   },
   "devDependencies": {
