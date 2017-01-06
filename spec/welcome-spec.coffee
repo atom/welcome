@@ -4,18 +4,12 @@ Reporter = require '../lib/reporter'
 describe "Welcome", ->
   editor = null
 
-  beforeEach ->
-    spyOn(atom.workspace, 'open').andCallThrough()
-
   describe "when `core.telemetryConsent` is 'undecided'", ->
     beforeEach ->
       atom.config.set('core.telemetryConsent', 'undecided')
 
       waitsForPromise ->
         atom.packages.activatePackage("welcome")
-
-      waitsFor ->
-        atom.workspace.open.calls.length is 3
 
     it "opens the telemetry consent pane and the welcome panes", ->
       panes = atom.workspace.getPanes()
@@ -30,9 +24,6 @@ describe "Welcome", ->
 
       waitsForPromise ->
         atom.packages.activatePackage("welcome")
-
-      waitsFor ->
-        atom.workspace.open.calls.length is 2
 
     describe "when activated for the first time", ->
       it "shows the welcome panes", ->
