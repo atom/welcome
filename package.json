@@ -1,6 +1,6 @@
 {
   "name": "welcome",
-  "main": "./lib/welcome",
+  "main": "./lib/main",
   "version": "0.35.2",
   "description": "Welcome users to Atom with useful information",
   "repository": "https://github.com/atom/welcome",
