@@ -73,17 +73,18 @@ describe "Welcome", ->
           newGuideView = atom.deserializers.deserialize({deserializer, uri})
 
         it "remembers open sections", ->
-          guideView.find("details[data-section=\"snippets\"]").attr('open', 'open')
-          guideView.find("details[data-section=\"init-script\"]").attr('open', 'open')
+          guideView.element.querySelector("details[data-section=\"snippets\"]").setAttribute('open', 'open')
+          guideView.element.querySelector("details[data-section=\"init-script\"]").setAttribute('open', 'open')
+
           serialized = guideView.serialize()
 
           expect(serialized.openSections).toEqual ['init-script', 'snippets']
 
           newGuideView = atom.deserializers.deserialize(serialized)
 
-          expect(newGuideView.find("details[data-section=\"packages\"]")).not.toHaveAttr 'open'
-          expect(newGuideView.find("details[data-section=\"snippets\"]")).toHaveAttr 'open'
-          expect(newGuideView.find("details[data-section=\"init-script\"]")).toHaveAttr 'open'
+          expect(newGuideView.element.querySelector("details[data-section=\"packages\"]").hasAttribute('open')).toBe(false)
+          expect(newGuideView.element.querySelector("details[data-section=\"snippets\"]").hasAttribute('open')).toBe(true)
+          expect(newGuideView.element.querySelector("details[data-section=\"init-script\"]").hasAttribute('open')).toBe(true)
 
     describe "reporting events", ->
       [panes, guideView, welcomeView] = []
@@ -98,22 +99,20 @@ describe "Welcome", ->
         it "captures expand and collapse events", ->
           expect(Reporter.sendEvent).not.toHaveBeenCalled()
 
-          guideView.find("details[data-section=\"packages\"] summary").click()
+          guideView.element.querySelector("details[data-section=\"packages\"] summary").click()
           expect(Reporter.sendEvent).toHaveBeenCalledWith('expand-packages-section')
           expect(Reporter.sendEvent).not.toHaveBeenCalledWith('collapse-packages-section')
 
-          guideView.find("details[data-section=\"packages\"]").attr('open', true)
-          guideView.find("details[data-section=\"packages\"] summary").click()
+          guideView.element.querySelector("details[data-section=\"packages\"]").setAttribute('open', 'open')
+          guideView.element.querySelector("details[data-section=\"packages\"] summary").click()
           expect(Reporter.sendEvent).toHaveBeenCalledWith('collapse-packages-section')
 
         it "captures button events", ->
           spyOn(atom.commands, 'dispatch')
-          for detailElement in guideView.find('details')
-            detailElement = $(detailElement)
-            sectionName = detailElement.attr('data-section')
+          for detailElement in guideView.element.querySelector('details')
+            sectionName = detailElement.dataset.section
             eventName = "clicked-#{sectionName}-cta"
-            primaryButton = detailElement.find('.btn-primary')
-            if primaryButton.length
+            if primaryButton = detailElement.querySelector('.btn-primary')
               expect(Reporter.sendEvent).not.toHaveBeenCalledWith(eventName)
               primaryButton.click()
               expect(Reporter.sendEvent).toHaveBeenCalledWith(eventName)
