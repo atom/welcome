@@ -46,7 +46,7 @@ class WelcomeView extends ScrollView
   @deserialize: (options={}) ->
     new WelcomeView(options)
 
-  initialize: ->
+  initialize: ({@uri}) ->
     if atom.config.get('welcome.showOnStartup')
       $(this).find('#show-welcome-on-startup').attr('checked', 'checked')
     @on 'click', 'a', ->
