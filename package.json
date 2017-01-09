@@ -1,6 +1,6 @@
 {
   "name": "welcome",
-  "version": "0.35.2",
+  "version": "0.36.0",
   "description": "Welcome users to Atom with useful information",
   "main": "./lib/main",
   "atomTestRunner": "atom-mocha-test-runner",
@@ -39,6 +39,8 @@
     "standard": "^8.6.0"
   },
   "standard": {
-    "globals": ["atom"]
+    "globals": [
+      "atom"
+    ]
   }
 }
