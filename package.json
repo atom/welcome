@@ -11,7 +11,7 @@
   },
   "scripts": {
     "lint": "standard",
-    "test": "atom --test spec/*.test.js"
+    "test": "atom --test test/*.test.js"
   },
   "consumedServices": {
     "metrics-reporter": {
