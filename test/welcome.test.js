@@ -24,7 +24,7 @@ describe('Welcome', () => {
     })
 
     it('opens the telemetry consent pane and the welcome panes', () => {
-      const panes = atom.workspace.getPanes()
+      const panes = atom.workspace.getCenter().getPanes()
       assert.equal(panes.length, 2)
       assert.equal(panes[0].getItems()[0].getTitle(), 'Telemetry Consent')
       assert.equal(panes[0].getItems()[1].getTitle(), 'Welcome')
@@ -40,7 +40,7 @@ describe('Welcome', () => {
 
     describe('when activated for the first time', () =>
       it('shows the welcome panes', () => {
-        const panes = atom.workspace.getPanes()
+        const panes = atom.workspace.getCenter().getPanes()
         assert.equal(panes.length, 2)
         assert.equal(panes[0].getItems()[0].getTitle(), 'Welcome')
         assert.equal(panes[1].getItems()[0].getTitle(), 'Welcome Guide')
@@ -49,7 +49,7 @@ describe('Welcome', () => {
 
     describe('the welcome:show command', () => {
       it('shows the welcome buffer', async () => {
-        atom.workspace.getPanes().map(pane => pane.destroy())
+        atom.workspace.getCenter().getPanes().map(pane => pane.destroy())
         assert(!atom.workspace.getActivePaneItem())
 
         const workspaceElement = atom.views.getView(atom.workspace)
@@ -57,7 +57,7 @@ describe('Welcome', () => {
 
         await conditionPromise(() => atom.workspace.getActivePaneItem())
 
-        const panes = atom.workspace.getPanes()
+        const panes = atom.workspace.getCenter().getPanes()
         assert.equal(panes.length, 2)
         assert.equal(panes[0].getItems()[0].getTitle(), 'Welcome')
       })
@@ -66,7 +66,7 @@ describe('Welcome', () => {
     describe('deserializing the pane items', () => {
       describe('when GuideView is deserialized', () => {
         it('remembers open sections', () => {
-          const panes = atom.workspace.getPanes()
+          const panes = atom.workspace.getCenter().getPanes()
           const guideView = panes[1].getItems()[0]
 
           guideView.element.querySelector('details[data-section="snippets"]').setAttribute('open', 'open')
@@ -87,7 +87,7 @@ describe('Welcome', () => {
     describe('reporting events', () => {
       let panes, guideView, reportedEvents
       beforeEach(() => {
-        panes = atom.workspace.getPanes()
+        panes = atom.workspace.getCenter().getPanes()
         guideView = panes[1].getItems()[0]
         reportedEvents = []
 
