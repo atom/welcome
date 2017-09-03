@@ -10,7 +10,8 @@
     "atom": ">0.50.0"
   },
   "scripts": {
-    "test": "standard lib/**/*.js test/**/*.js && atom --test test/*.test.js"
+    "lint": "standard",
+    "test": "atom --test test/*.test.js"
   },
   "consumedServices": {
     "metrics-reporter": {
