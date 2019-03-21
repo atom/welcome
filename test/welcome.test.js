@@ -132,8 +132,8 @@ describe('Welcome', () => {
         welcomePackage.reporterProxy.setReporter(reporter1)
 
         assert.deepEqual(reporter1.reportedEvents, [
-          [{category: 'welcome-v1', action: 'foo', label: 'bar', value: 'baz'}],
-          [{category: 'welcome-v1', action: 'foo2', label: 'bar2', value: 'baz2'}]
+          {category: 'welcome-v1', action: 'foo', label: 'bar', value: 'baz'},
+          {category: 'welcome-v1', action: 'foo2', label: 'bar2', value: 'baz2'}
         ])
 
         welcomePackage.consumeReporter(reporter2)
