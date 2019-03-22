@@ -8,7 +8,7 @@ Currently the Welcome package does not log any counter event.
 
 ## Timing events
 
-Currently the Welcome package does not log any timing event.
+Currently the Welcome package does not log any timing events.
 
 ## Standard events
 
