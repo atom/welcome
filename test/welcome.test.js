@@ -124,16 +124,26 @@ describe('Welcome', () => {
       it('sends all queued events', () => {
         welcomePackage.reporterProxy.queue.length = 0
 
-        const reporter1 = {addCustomEvent (category, event) { this.reportedEvents.push(event) }, reportedEvents: []}
-        const reporter2 = {addCustomEvent (category, event) { this.reportedEvents.push(event) }, reportedEvents: []}
+        const reporter1 = {
+          addCustomEvent (category, event) {
+            this.reportedEvents.push({ category, ...event })
+          },
+          reportedEvents: []
+        }
+        const reporter2 = {
+          addCustomEvent (category, event) {
+            this.reportedEvents.push({ category, ...event })
+          },
+          reportedEvents: []
+        }
 
-        welcomePackage.reporterProxy.sendEvent('foo', 'bar', 'baz')
-        welcomePackage.reporterProxy.sendEvent('foo2', 'bar2', 'baz2')
+        welcomePackage.reporterProxy.sendEvent('foo', 'bar', 10)
+        welcomePackage.reporterProxy.sendEvent('foo2', 'bar2', 60)
         welcomePackage.reporterProxy.setReporter(reporter1)
 
         assert.deepEqual(reporter1.reportedEvents, [
-          [{category: 'welcome-v1', action: 'foo', label: 'bar', value: 'baz'}],
-          [{category: 'welcome-v1', action: 'foo2', label: 'bar2', value: 'baz2'}]
+          {category: 'welcome-v1', ea: 'foo', el: 'bar', ev: 10},
+          {category: 'welcome-v1', ea: 'foo2', el: 'bar2', ev: 60}
         ])
 
         welcomePackage.consumeReporter(reporter2)
