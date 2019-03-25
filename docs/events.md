@@ -4,7 +4,7 @@ This document specifies all the data (along with the format) which gets sent fro
 
 ## Counters
 
-Currently the Welcome package does not log any counter event.
+Currently the Welcome package does not log any counter events.
 
 ## Timing events
 
